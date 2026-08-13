@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ChoreUnlock — No chores, no screen time. Automatically.</title>
+<meta name="description" content="ChoreUnlock turns chores into screen time. Kids earn their apps by finishing chores — and the tablet locks and unlocks itself automatically. No nagging, no Settings." />
+<meta property="og:title" content="ChoreUnlock — No chores, no screen time." />
+<meta property="og:description" content="Kids earn screen time by doing chores. The device locks and unlocks itself, automatically." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'%3E%3Crect width='1024' height='1024' rx='230' fill='%232563EB'/%3E%3Ccircle cx='512' cy='399' r='184' fill='white'/%3E%3Cpath d='M425 491 L599 491 L666 819 L358 819 Z' fill='white'/%3E%3C/svg%3E" />
+<style>
+  :root{
+    --indigo:#3730A3; --indigo-deep:#2A2580; --amber:#F59E0B; --amber-soft:#FEF3C7;
+    --ink:#111827; --muted:#6B7280; --line:#E5E7EB; --bg:#FFFFFF; --bg-soft:#F5F4FB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .btn{display:inline-block;background:var(--indigo);color:#fff;font-weight:800;padding:14px 26px;border-radius:14px;font-size:16px;transition:transform .12s ease,box-shadow .12s ease;box-shadow:0 8px 24px rgba(55,48,163,.25)}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(55,48,163,.32)}
+  .btn.ghost{background:#fff;color:var(--indigo);border:1.5px solid var(--line);box-shadow:none}
+  .pill{display:inline-block;background:var(--amber-soft);color:#92400E;font-weight:800;font-size:12.5px;letter-spacing:.4px;padding:6px 12px;border-radius:999px;text-transform:uppercase}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;letter-spacing:-.3px}
+  .logo{width:34px;height:34px;border-radius:9px;overflow:hidden;display:block}
+  .logo svg{display:block;width:100%;height:100%}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{font-weight:800;color:#111;font-size:15px}
+  .nav-links a:hover{color:#111;opacity:.7}
+  /* pop-art CTA: amber fill, hard black outline + offset shadow, presses on hover, breathing amber glow */
+  .btn-pop{background:var(--amber);color:#111;font-weight:900;letter-spacing:.3px;border:2.5px solid #111;box-shadow:4px 4px 0 #111;transition:transform .1s ease,box-shadow .1s ease;animation:popGlow 1.9s ease-in-out infinite}
+  .btn-pop:hover{color:#111;transform:translate(4px,4px);box-shadow:0 0 0 #111}
+  /* nav "Get ChoreUnlock" matches the hero button exactly (base .btn + .btn-pop) */
+  @keyframes popGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(245,158,11,0))}50%{filter:drop-shadow(0 0 9px rgba(245,158,11,.8))}}
+  @media(prefers-reduced-motion:reduce){.btn-pop{animation:none}}
+  @media(max-width:720px){.nav-links a:not(.btn){display:none}}
+
+  /* HERO */
+  .hero{background:radial-gradient(900px 720px at 88% -18%,rgba(245,158,11,.26) 0%,rgba(245,158,11,.07) 36%,rgba(245,158,11,0) 62%),radial-gradient(1200px 500px at 78% -10%,#EEF2FF 0%,#fff 60%);padding:70px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+  h1{font-size:52px;line-height:1.05;letter-spacing:-1.4px;font-weight:900}
+  h1 .accent{color:var(--indigo)}
+  .sub{font-size:19px;color:var(--muted);margin:20px 0 28px;max-width:520px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .cta-note{font-size:13.5px;color:var(--muted);margin-top:14px}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;text-align:center}.sub{margin-left:auto;margin-right:auto}.cta-row{justify-content:center}h1{font-size:40px}}
+
+  /* PHONE MOCKUP */
+  .phone{width:270px;margin:0 auto;border-radius:40px;background:#0F172A;padding:12px;box-shadow:0 30px 70px rgba(17,24,39,.28)}
+  .screen{border-radius:30px;overflow:hidden;background:#fff}
+  .p-hero{background:linear-gradient(160deg,var(--indigo),#4F46E5);color:#fff;padding:20px 18px 26px}
+  .p-hero small{opacity:.85;font-weight:700}
+  .p-hero h3{font-size:22px;font-weight:900;margin-top:2px}
+  .p-lock{background:var(--amber-soft);color:#92400E;margin:14px 0;border-radius:14px;padding:12px 14px;font-weight:800;font-size:13.5px;display:flex;gap:9px;align-items:center}
+  .p-body{padding:16px 18px 22px}
+  .p-task{display:flex;align-items:center;gap:11px;padding:11px 0;border-top:1px solid #EEF0F2;font-weight:700;font-size:14px}
+  .p-task .ck{width:22px;height:22px;border-radius:7px;background:#DCFCE7;color:#166534;display:grid;place-items:center;font-size:12px;font-weight:900}
+  .p-task .todo{width:22px;height:22px;border-radius:7px;border:2px solid var(--line)}
+  .p-unlock{background:#DCFCE7;color:#166534;border-radius:14px;padding:12px;text-align:center;font-weight:900;font-size:14px;margin-top:8px}
+
+  /* two overlapping phones: kid's screen in front, parent dashboard behind */
+  .phones{position:relative;width:380px;max-width:100%;height:610px;margin:0 auto}
+  .phones .phone{position:absolute;width:236px;margin:0}
+  .phones .phone.parent{top:-6px;right:-10px;transform:rotate(9deg);z-index:1}
+  .phones .phone.kid{bottom:0;left:-6px;transform:rotate(-5deg);z-index:2}
+  /* parent dashboard mock */
+  .pd{padding:16px 15px 18px;background:#F7F8FA}
+  .pd-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .pd-logo{font-weight:900;color:var(--indigo);font-size:15px}
+  .pd-chip{background:var(--amber-soft);color:#92400E;font-weight:800;font-size:11px;padding:4px 9px;border-radius:999px}
+  .pd-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px}
+  .pd-row{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:800}
+  .pd-lvl{background:#EEF2FF;color:var(--indigo);font-weight:800;font-size:11px;padding:3px 8px;border-radius:999px}
+  .pd-stat{font-size:11.5px;color:#6B7280;font-weight:700;margin-top:5px}
+  .pd-review{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+  .pd-rtitle{font-weight:800;font-size:13.5px;margin-bottom:8px}
+  .pd-photo{height:88px;border-radius:10px;background:linear-gradient(135deg,#c7d2fe,#fde68a);margin-bottom:10px;overflow:hidden}
+  .pd-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .pd-btns{display:flex;gap:8px}
+  .pd-approve{flex:1;text-align:center;background:#16A34A;color:#fff;font-weight:800;font-size:12.5px;padding:8px;border-radius:9px}
+  .pd-reject{flex:1;text-align:center;background:#DC2626;color:#fff;font-weight:800;font-size:12.5px;padding:8px;border-radius:9px}
+  @media(max-width:760px){.phones{transform:scale(.92);height:520px;margin-top:6px}}
+
+  /* SECTIONS */
+  section{padding:64px 0}
+  .kicker{color:var(--indigo);font-weight:800;letter-spacing:.6px;text-transform:uppercase;font-size:13px;text-align:center}
+  h2{font-size:36px;font-weight:900;letter-spacing:-.8px;text-align:center;margin:8px auto 10px;max-width:720px}
+  .lead{text-align:center;color:var(--muted);font-size:17.5px;max-width:640px;margin:0 auto 40px}
+
+  /* STEPS */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{background:var(--bg-soft);border:1px solid var(--line);border-radius:20px;padding:26px}
+  .step .n{width:38px;height:38px;border-radius:11px;background:var(--indigo);color:#fff;display:grid;place-items:center;font-weight:900;font-size:17px;margin-bottom:14px}
+  .step h4{font-size:19px;font-weight:800;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:15px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+  /* FLAGSHIP */
+  .flag{background:var(--indigo);color:#fff;border-radius:28px;padding:52px 46px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .flag .pill{background:rgba(255,255,255,.15);color:#fff}
+  .flag h2{text-align:left;color:#fff;margin:14px 0 12px;font-size:34px}
+  .flag p{color:#C7D2FE;font-size:16.5px;margin-bottom:14px}
+  .flag ul{list-style:none;display:grid;gap:10px}
+  .flag li{display:flex;gap:11px;align-items:flex-start;font-weight:600}
+  .flag li b{color:#fff}
+  .flag .tick{color:#FDE68A;font-weight:900}
+  .flag-visual{background:rgba(255,255,255,.08);border-radius:20px;padding:30px;text-align:center}
+  .flag-visual .big{font-size:64px}
+  .flag-visual .cap{color:#C7D2FE;font-size:14px;margin-top:8px;font-weight:600}
+  @media(max-width:820px){.flag{grid-template-columns:1fr;padding:38px 26px}.flag h2{text-align:center}}
+
+  /* FEATURES */
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{border:1px solid var(--line);border-radius:18px;padding:24px;background:#fff}
+  .card .ic{font-size:28px}
+  .card h4{font-size:18px;font-weight:800;margin:12px 0 6px}
+  .card p{color:var(--muted);font-size:14.5px}
+  .card .tag{display:inline-block;margin-top:10px;background:var(--amber-soft);color:#92400E;font-size:11px;font-weight:900;letter-spacing:.5px;padding:3px 9px;border-radius:999px}
+  @media(max-width:820px){.feat{grid-template-columns:1fr}}
+
+  /* PRICING */
+  .price{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:820px;margin:0 auto}
+  .plan{border:1px solid var(--line);border-radius:22px;padding:30px}
+  .plan.pro{border:2px solid var(--indigo);box-shadow:0 20px 50px rgba(55,48,163,.14);position:relative}
+  .plan h3{font-size:22px;font-weight:900}
+  .plan .amt{font-size:40px;font-weight:900;margin:8px 0 2px;letter-spacing:-1px}
+  .plan .amt span{font-size:16px;color:var(--muted);font-weight:700}
+  .plan .best{position:absolute;top:-13px;right:22px}
+  .plan .trial{display:inline-block;background:#DCFCE7;color:#166534;font-weight:900;font-size:12.5px;letter-spacing:.4px;padding:6px 13px;border-radius:999px;margin:6px 0 2px}
+  .plan ul{list-style:none;margin:18px 0 0;display:grid;gap:11px}
+  .plan li{display:flex;gap:10px;font-size:15px;color:#374151}
+  .plan li .c{color:#166534;font-weight:900}
+  @media(max-width:720px){.price{grid-template-columns:1fr}}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:14px}
+  .foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-links a:hover{color:var(--ink)}
+  .center{text-align:center}
+  .soon{display:inline-block;background:var(--amber);color:#3b2600;font-weight:900;font-size:13px;padding:12px 22px;border-radius:14px}
+
+  /* ===== RANSOM-NOTE HEADLINE (from the ad campaign) ===== */
+  h1.ransom-h1{display:flex;flex-direction:column;gap:10px;align-items:flex-start;letter-spacing:0}
+  .ransom{display:flex;flex-wrap:wrap;gap:9px}
+  .cut{display:inline-block;font-weight:900;padding:4px 15px;border-radius:6px;line-height:1.06;font-size:clamp(30px,5.2vw,54px);letter-spacing:-1px;box-shadow:3px 4px 0 rgba(17,24,39,.18)}
+  .c-indigo{background:var(--indigo);color:#fff;transform:rotate(-2deg)}
+  .c-amber{background:var(--amber);color:#3b2600;transform:rotate(2deg)}
+  .c-red{background:#E5484D;color:#fff;transform:rotate(-3deg)}
+  .c-white{background:#fff;color:var(--indigo);border:3px solid var(--indigo);transform:rotate(1.5deg)}
+  @media(max-width:860px){h1.ransom-h1{align-items:center}.ransom{justify-content:center}}
+
+  /* ===== POP-ART COMIC BAND (from the ad campaign) ===== */
+  .pop{position:relative;overflow:hidden;background:radial-gradient(circle at 18% 18%,#FFD84D 0 3px,transparent 4px),#FF5A5F;background-size:26px 26px;padding:72px 0;text-align:center}
+  .starburst{width:340px;height:340px;margin:0 auto;background:#FFD84D;display:grid;place-items:center;transform:rotate(-6deg);
+    clip-path:polygon(50% 0%,61% 12%,76% 5%,79% 22%,96% 22%,89% 38%,100% 50%,89% 62%,96% 78%,79% 78%,76% 95%,61% 88%,50% 100%,39% 88%,24% 95%,21% 78%,4% 78%,11% 62%,0% 50%,11% 38%,4% 22%,21% 22%,24% 5%,39% 12%)}
+  .starburst span{font-family:'Comic Sans MS','Segoe Print',cursive;font-size:60px;font-weight:900;color:#111;transform:rotate(4deg);text-shadow:3px 3px 0 #fff}
+  @media(max-width:520px){.starburst{width:240px;height:240px}.starburst span{font-size:52px}}
+  .speech{max-width:620px;margin:26px auto 0;background:#fff;border:6px solid #111;border-radius:30px;padding:24px 30px;position:relative;font-family:'Comic Sans MS','Segoe Print',cursive;font-weight:700;font-size:22px;color:#111;line-height:1.4}
+  .speech::after{content:'';position:absolute;bottom:-30px;left:80px;width:0;height:0;border-left:26px solid transparent;border-right:10px solid transparent;border-top:30px solid #111}
+  .speech small{display:block;margin-top:8px;font-size:14px;color:#555;font-style:italic}
+  .comic-cta{display:inline-block;margin-top:36px;background:#111;color:#FFD84D;font-family:'Comic Sans MS','Segoe Print',cursive;font-weight:900;font-size:24px;padding:18px 46px;border:4px solid #FFD84D;border-radius:14px;transform:rotate(-2deg);box-shadow:8px 8px 0 #000;transition:transform .12s ease,box-shadow .12s ease;animation:popGlow 1.9s ease-in-out infinite}
+  .comic-cta:hover{transform:rotate(-2deg) translate(6px,6px);box-shadow:2px 2px 0 #000}
+
+  /* ===== HOSTAGE NOTE (ransom feature list) ===== */
+  .hostage{background:#EFE9DA;padding:70px 0}
+  .note{position:relative;max-width:760px;margin:0 auto;background:#FBF8EF;border:1px solid #E4DEC9;border-radius:8px;padding:52px 46px 48px;text-align:center;box-shadow:0 18px 50px rgba(17,24,39,.14);transform:rotate(-.5deg)}
+  .note .tape{position:absolute;width:130px;height:34px;background:rgba(245,158,11,.5);box-shadow:0 1px 3px rgba(0,0,0,.12);z-index:3}
+  .note .terms{margin-top:32px;font-size:21px;line-height:1.7;color:#2A2F3A;font-weight:700}
+  .note .terms b{background:var(--amber);padding:2px 10px;border-radius:3px;color:#3b2600}
+  .note .signed{margin-top:24px;font-size:22px;font-style:italic;color:#55627A;font-weight:600}
+
+  /* ===== GOLDEN BEACON (dark finale, morning light) ===== */
+  .beacon{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 118%,#16295C 0%,#0D1B3D 46%,#070F26 100%);padding:96px 0 100px;text-align:center;color:#fff}
+  .beacon .beam{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:min(560px,82%);height:520px;filter:blur(6px);pointer-events:none;
+    background:linear-gradient(to bottom,rgba(255,241,196,.9) 0%,rgba(245,197,66,.28) 40%,rgba(245,197,66,0) 100%);clip-path:polygon(44% 0,56% 0,100% 100%,0 100%)}
+  .beacon .source{position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:460px;height:340px;border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle,rgba(255,251,235,.95) 0%,rgba(245,197,66,.5) 40%,rgba(245,197,66,0) 72%)}
+  .beacon .spark{position:absolute;color:#F5C542;opacity:.85;z-index:1}
+  .beacon-content{position:relative;z-index:2}
+  .beacon-word{font-size:clamp(28px,5vw,44px);font-weight:900;letter-spacing:-1.5px;color:#fff;text-shadow:0 4px 30px rgba(245,197,66,.5)}
+  .beacon-word span{color:#F5C542}
+  .beacon-head{font-size:clamp(36px,6.4vw,60px);font-weight:900;color:#FFF8E7;letter-spacing:-1.5px;margin:22px auto 0;line-height:1.08;text-align:center}
+  .beacon-sub{color:#C9D4EE;font-size:18px;max-width:560px;margin:18px auto 0;font-weight:600}
+  .beacon-cta{display:inline-block;margin-top:34px;background:linear-gradient(180deg,#F5C542,#D4A017);color:#0D1B3D;font-weight:900;font-size:16px;padding:16px 42px;border-radius:999px;box-shadow:0 10px 40px rgba(245,197,66,.4)}
+
+  /* ===== THE STAT (warning tape) ===== */
+  .stat{position:relative;background:#111;color:#fff;text-align:center;padding:78px 0}
+  .stat .warn{position:absolute;left:0;right:0;height:14px;background:repeating-linear-gradient(45deg,#F5C542 0 22px,#111 22px 44px)}
+  .stat .warn.top{top:0}.stat .warn.bot{bottom:0}
+  .stat .big{font-size:clamp(62px,13vw,140px);font-weight:900;color:#F5C542;letter-spacing:-4px;line-height:1;text-shadow:0 0 60px rgba(245,197,66,.35)}
+  .stat .mid{font-size:clamp(20px,3.4vw,34px);font-weight:900;margin-top:8px}
+  .stat .stsub{font-size:17px;color:#B9C1D2;max-width:600px;margin:22px auto 0;line-height:1.5}
+  .stat .stsub b{color:#F5C542}
+
+  /* ===== THE QUESTION ===== */
+  .question{background:#FDFBF4;text-align:center;padding:78px 0}
+  .question h2{font-size:clamp(30px,5.4vw,52px);font-weight:900;color:#0D1B3D;letter-spacing:-1.5px;line-height:1.12;max-width:820px;margin:0 auto}
+  .question .algo{color:#6B7280;text-decoration:line-through;text-decoration-color:#E5484D;text-decoration-thickness:5px}
+  .question .you{color:#B8860B;position:relative}
+  .question .you::after{content:'';position:absolute;left:-2px;right:-2px;bottom:2px;height:9px;background:var(--amber);border-radius:6px;opacity:.5;z-index:-1}
+  .question p{margin:24px auto 0;font-size:18px;color:#55627A;max-width:640px;line-height:1.5}
+
+  /* ===== FAQ ===== */
+  .faq-list{max-width:760px;margin:34px auto 0;text-align:left}
+  .faq-list details{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;box-shadow:0 6px 20px rgba(17,24,39,.05)}
+  .faq-list summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:800;font-size:17px;color:#0D1B3D;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary::after{content:'+';font-size:26px;font-weight:700;color:var(--indigo);line-height:1}
+  .faq-list details[open] summary::after{content:'\2013'}
+  .faq-list .fa{padding:0 22px 20px;color:#55627A;font-size:15.5px;line-height:1.6}
+  .faq-list .fa a{color:var(--indigo);font-weight:700}
+  .question p b{color:#0D1B3D}
+
+  /* hostage note + video, side by side */
+  .hostage-row{display:flex;gap:44px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .hostage-row .note{margin:0;flex:1 1 440px;max-width:560px}
+  .hvideo{flex:0 1 340px;display:flex;justify-content:center}
+  .hvideo video{width:100%;max-width:330px;border-radius:26px;background:#000;box-shadow:0 26px 70px rgba(17,24,39,.32);display:block}
+  @media(max-width:760px){.hvideo video{max-width:260px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="logo"><svg viewBox="0 0 1024 1024"><rect width="1024" height="1024" fill="#2563EB"/><circle cx="512" cy="399" r="184" fill="#fff"/><path d="M425 491 L599 491 L666 819 L358 819 Z" fill="#fff"/></svg></span> ChoreUnlock</a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-pop" href="#get">Get ChoreUnlock</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill">🔒 Chores unlock screen time — automatically</span>
+      <h1 class="ransom-h1">
+        <span class="ransom"><span class="cut c-indigo">NO</span><span class="cut c-amber">CHORES.</span></span>
+        <span class="ransom"><span class="cut c-red">NO</span><span class="cut c-white">SCREEN</span><span class="cut c-indigo">TIME.</span></span>
+      </h1>
+      <p class="sub">ChoreUnlock turns chores into screen time. Kids earn their apps by finishing their chores — and the tablet <b>locks and unlocks itself.</b> No nagging, no fiddling with Settings, no arguments.</p>
+      <div class="cta-row">
+        <a class="btn btn-pop" href="#get">Get ChoreUnlock</a>
+        <a class="btn ghost" href="#how">See how it works</a>
+      </div>
+      <p class="cta-note">iPhone &amp; iPad · 7-day free trial · Free plan for one child</p>
+    </div>
+    <div>
+      <div class="phones">
+        <div class="phone parent">
+          <div class="screen pd">
+            <div class="pd-top">
+              <span class="pd-logo">Parent</span>
+              <span class="pd-chip">⏳ 1 to review</span>
+            </div>
+            <div class="pd-card">
+              <div class="pd-row"><span>🧢 Anna</span><span class="pd-lvl">🏅 Lvl 3</span></div>
+              <div class="pd-stat">🔥 5-day streak · 🏆 145 XP earned</div>
+            </div>
+            <div class="pd-card">
+              <div class="pd-row"><span>⚡ Anna's screen time</span></div>
+              <div class="pd-stat">0:22:00 left today · tap +15m to reward</div>
+            </div>
+            <div class="pd-review">
+              <div class="pd-rtitle">🧹 Tidy the playroom</div>
+              <div class="pd-photo"><img src="playroom.jpg" alt="Tidy playroom" onerror="this.style.display='none'"></div>
+              <div class="pd-btns"><span class="pd-approve">✓ Approve</span><span class="pd-reject">Reject</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phone kid">
+          <div class="screen">
+            <div class="p-hero">
+              <small>Good morning</small>
+              <h3>Anna! ☀️</h3>
+              <div class="p-lock">🔒 2 missions to go and it's yours!</div>
+            </div>
+            <div class="p-body">
+              <div class="p-task"><span class="ck">✓</span> Homework</div>
+              <div class="p-task"><span class="ck">✓</span> Make the bed</div>
+              <div class="p-task"><span class="ck">✓</span> Feed the dog</div>
+              <div class="p-task"><span class="todo"></span> Tidy the playroom</div>
+              <div class="p-task"><span class="todo"></span> Brush teeth 🌙</div>
+              <div class="p-unlock">Finish them all → apps unlock 🎉</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="stat">
+  <span class="warn top"></span>
+  <div class="wrap">
+    <div class="big">5 HOURS</div>
+    <div class="mid">of brainrot. Every. Single. Day.</div>
+    <p class="stsub">That's the average kid's daily screen time. Flip it: <b>chores first, screen time after</b> — automatically.</p>
+  </div>
+  <span class="warn bot"></span>
+</section>
+
+<section class="hostage">
+  <div class="wrap">
+    <div class="hostage-row">
+      <div class="note">
+        <span class="tape" style="top:-15px;left:56px;transform:rotate(-36deg)"></span>
+        <span class="tape" style="top:-17px;right:46px;transform:rotate(34deg)"></span>
+        <div class="ransom" style="justify-content:center">
+          <span class="cut c-indigo">WE</span><span class="cut c-amber">HAVE</span><span class="cut c-red">CONTROL</span>
+        </div>
+        <div class="terms">The apps stay <b>locked</b> until the bed is made, the homework is checked, and today's <b>missions are done</b>. Finish them &mdash; the apps unlock on their own.</div>
+        <div class="signed">&mdash; Mom &amp; Dad</div>
+        <a class="btn" href="#get" style="margin-top:30px">Take control &rarr;</a>
+      </div>
+      <div class="hvideo">
+        <video id="adVideo" src="choreunlock-best.mp4" muted playsinline controls preload="metadata"></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="question">
+  <div class="wrap">
+    <h2>Who's raising your kids &mdash; <span class="algo">the algorithm</span> or <span class="you">you</span>?</h2>
+    <p>Take screen time off autopilot. With ChoreUnlock it's <b>earned</b> &mdash; beds made, homework done, teeth brushed &mdash; not endless.</p>
+  </div>
+</section>
+
+<section id="how" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <p class="kicker">How it works</p>
+    <h2>Three steps. Then it runs itself.</h2>
+    <p class="lead">Set it up once. After that, ChoreUnlock handles the locking and unlocking so you don't have to.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h4>Assign the chores</h4>
+        <p>From your phone, give each child their missions and how much XP they're worth. Pick the apps to lock until chores are done.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h4>Kids do them</h4>
+        <p>Your child checks off missions and snaps a proof photo. Locked apps stay shielded until the work is really done.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h4>Approve → it unlocks</h4>
+        <p>Approve from your phone (or let the AI do it). The moment chores are done, the tablet unlocks — automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="flag">
+      <div>
+        <span class="pill">The magic</span>
+        <h2>The device locks and unlocks itself</h2>
+        <p>Works at the system level — but you never touch Settings. ChoreUnlock shields the apps you choose and clears them the instant chores are approved.</p>
+        <ul>
+          <li><span class="tick">✓</span><span><b>Automatic.</b> No manual toggling — chores done, apps unlock.</span></li>
+          <li><span class="tick">✓</span><span><b>Or meter it.</b> Flip on the XP meter — kids spend earned XP to buy screen-time minutes and a timer counts down, so screen time is chosen, not endless.</span></li>
+          <li><span class="tick">✓</span><span><b>Tamper-resistant.</b> Closing the app doesn't unlock it; it re-locks every morning on its own.</span></li>
+          <li><span class="tick">✓</span><span><b>Simple setup.</b> No Family Sharing or child accounts required.</span></li>
+          <li><span class="tick">✓</span><span><b>ChoreUnlock stays open</b> so kids can always do their chores.</span></li>
+        </ul>
+      </div>
+      <div class="flag-visual">
+        <div class="big">🔒 → 🔓</div>
+        <div class="cap">Chores approved → the whole tablet frees up, hands-free.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pop">
+  <div class="wrap">
+    <div class="starburst"><span>CHORES?!</span></div>
+    <div class="speech">“Mom… I finished EVERYTHING. Can my apps unlock now?”<small>— an actual sentence your kid will say</small></div>
+    <a class="comic-cta" href="#get">GET CHOREUNLOCK → KA-POW</a>
+  </div>
+</section>
+
+<section id="features" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <p class="kicker">Everything inside</p>
+    <h2>Motivation kids actually respond to</h2>
+    <p class="lead">More than a chore chart — a little game that makes helping out feel rewarding.</p>
+    <div class="feat">
+      <div class="card"><div class="ic">🔒</div><h4>Auto-Lock</h4><p>Apps lock until chores are done and unlock automatically when they are.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">⚡</div><h4>Earn screen time with XP</h4><p>Beyond on/off: kids spend the XP they earn to buy screen-time minutes, then a countdown timer runs. Screen time becomes chosen, not endless.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">🤖</div><h4>AI photo check</h4><p>Snap a proof photo and AI checks the chore's really done — so you approve less.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">⭐</div><h4>XP, levels &amp; streaks</h4><p>Every mission earns XP. Kids level up and build streaks that keep them going.</p></div>
+      <div class="card"><div class="ic">🎁</div><h4>Mystery Chest</h4><p>Kids spend earned XP on a surprise prize — the thrill keeps them motivated.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">🏆</div><h4>Family &amp; Daily Challenges</h4><p>Shared goals and daily bonus missions the whole crew can conquer together.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">💛</div><h4>Values &amp; character</h4><p>Tie missions to the values you care about — fully customizable to your family.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <p class="kicker">Pricing</p>
+    <h2>Start free. Unlock everything for less than a coffee.</h2>
+    <p class="lead">Try every Premium feature free for 7 days.</p>
+    <div class="price">
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="amt">$0</div>
+        <ul>
+          <li><span class="c">✓</span> One child, full daily experience</li>
+          <li><span class="c">✓</span> Missions, XP, levels &amp; streaks</li>
+          <li><span class="c">✓</span> Manual lock &amp; unlock</li>
+          <li><span class="c">✓</span> Up to 3 rewards</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <span class="pill best">Best value</span>
+        <h3>Premium</h3>
+        <div class="amt">$8.99<span> / month</span></div>
+        <div style="font-size:15px;color:#166534;font-weight:800;margin:2px 0 2px">or $89.99 / year — 2 months free</div>
+        <span class="trial">🎉 7-day free trial</span>
+        <ul>
+          <li><span class="c">✓</span> Your whole family — unlimited children</li>
+          <li><span class="c">✓</span> <b>Automatic</b> Auto-Lock — on/off <b>or metered by XP</b></li>
+          <li><span class="c">✓</span> Earn-screen-time XP meter &amp; countdown timer</li>
+          <li><span class="c">✓</span> AI photo checks</li>
+          <li><span class="c">✓</span> Mystery Chest, challenges &amp; unlimited rewards</li>
+          <li><span class="c">✓</span> Insights, streaks &amp; history</li>
+        </ul>
+      </div>
+    </div>
+    <p style="max-width:660px;margin:22px auto 0;font-size:12.5px;color:#8794ab;line-height:1.6;text-align:center">
+      Subscriptions auto-renew at $8.99/month or $89.99/year unless cancelled at least 24 hours before the period ends. Payment is charged to your Apple ID; manage or cancel anytime in Settings&nbsp;→&nbsp;Subscriptions. A 7-day free trial converts to a paid subscription if not cancelled before it ends. See our <a href="https://vasilioskountis-boop.github.io/choreunlock-privacy/terms.html" style="color:#8794ab;text-decoration:underline">Terms</a> and <a href="https://vasilioskountis-boop.github.io/choreunlock-privacy/" style="color:#8794ab;text-decoration:underline">Privacy Policy</a>.
+    </p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="kicker">FAQ</p>
+    <h2>Questions parents ask</h2>
+    <div class="faq-list">
+      <details open>
+        <summary>How does ChoreUnlock actually lock the apps?</summary>
+        <div class="fa">It uses Apple's built-in Family Control system. You pick exactly which apps to gate (games, video, browser, social), and they stay locked until the day's chores are approved — then they unlock automatically or work on a metered XP system. Your choice. It works everywhere: home Wi-Fi, cellular, anywhere.</div>
+      </details>
+      <details>
+        <summary>What stops them from just lying and saying they did it?</summary>
+        <div class="fa">You do. Nothing unlocks until a parent approves it — marking a chore done just sends you the request. The premium version can auto-unlock if you elect to let AI analyze the scenario and clear it; if the trash is still sitting there, it'll decline. It sounds like it puts the work back on you, but it's a different kind of work: you're not initiating, reminding or negotiating — you're glancing at a notification and tapping yes or no. Now the kid is the one chasing you, which is the whole reversal. They stop trying it fast, because a declined chore is one they still have to do. (Photo-worthy chores require a proof photo, and AI can even pre-check it or auto-unlock it.)</div>
+      </details>
+      <details>
+        <summary>How do kids prove a chore is done?</summary>
+        <div class="fa">Whatever fits the task: a <b>photo</b> (make the bed, tidy up), a quick <b>tap</b> on the honor system (drink water, brush teeth), a <b>voice recording</b> (like reciting a prayer), or a <b>timer</b> that counts down and then asks them to jot what they did (great for reading). AI can even check the photo so you approve less.</div>
+      </details>
+      <details>
+        <summary>Isn't this just bribery? Won't it kill their motivation?</summary>
+        <div class="fa">It's a fair concern, and there's real evidence that paying people for things they already love can make them love it a little less. But I've never met a kid with intrinsic motivation to clean a bathroom — there's nothing there to crowd out. Chores are already motivated from the outside; right now that outside thing is you, asking a fourth time. ChoreUnlock just turns it into a system the kid can see instead of a parent's mood. You're still the parent — just not the enforcement mechanism.</div>
+      </details>
+      <details>
+        <summary>Why not just take the phone away?</summary>
+        <div class="fa">Sometimes that's the right answer, and I'd never tell you it isn't. For us it stopped working because confiscation is a punishment — it happens after, it's emotional, and it lands as something I did because I was annoyed (usually accurately). It also made the phone the thing we fought about. It's roughly the same screen time either way — but now he earns it instead of me removing it, and I stopped being the person who takes things. That was the part I actually wanted to change.</div>
+      </details>
+      <details>
+        <summary>Can I block an app permanently — like Messages?</summary>
+        <div class="fa">Yes. Alongside the "earn to unlock" apps, there's an <b>always-blocked</b> list: any app you put there stays off at all times — even after chores are done or screen time is bought.</div>
+      </details>
+      <details>
+        <summary>Is it automatic, or do I have to unlock manually?</summary>
+        <div class="fa">On Premium it's fully automatic — apps lock when chores aren't done and unlock the moment they're approved. On the free plan you can still lock and unlock with a tap.</div>
+      </details>
+      <details>
+        <summary>Do I need a separate device or account for my child?</summary>
+        <div class="fa">No. You set it up right on your child's iPhone or iPad, and each child gets their own profile, emoji and a 4-digit PIN. Parents manage everything from the Parent Dashboard behind a parent PIN.</div>
+      </details>
+      <details>
+        <summary>What if my child forgets their PIN?</summary>
+        <div class="fa">Open the Parent Dashboard, tap that child, and set a new 4-digit PIN. You always control every child's PIN.</div>
+      </details>
+      <details>
+        <summary>Why is this a subscription instead of a one-time purchase?</summary>
+        <div class="fa">Because it isn't a finished thing I hand you once. It's a lock that has to survive every iOS update Apple ships — and Apple changes this framework more than you'd think. When something breaks in September, it has to be fixed in September. It also keeps your rules in sync across both parents' phones and your kids' devices, which is a service that runs continuously rather than software that sits on a disk. It's $8.99, and you can cancel from the App Store in about ten seconds — no email, no retention maze.</div>
+      </details>
+      <details>
+        <summary>Is there a free version?</summary>
+        <div class="fa">Yes — one child gets the full daily experience free (missions, XP, levels, streaks, manual lock &amp; unlock). Premium unlocks your whole family and every feature for <b>$8.99/month</b> or <b>$89.99/year</b> (two months free), after a <b>7-day free trial</b>.</div>
+      </details>
+      <details>
+        <summary>Do you support Android?</summary>
+        <div class="fa">Not yet — and I won't pretend I have a date. On iPhone and iPad this runs on Apple's Family Controls, which locks apps at the OS level. Android's equivalent isn't as tight — most versions of an app like this can be uninstalled or worked around by a determined kid, and I'd rather ship nothing than give you a false sense of a lock. If that changes, I'll build it.</div>
+      </details>
+      <details>
+        <summary>Are my kids' proof photos private?</summary>
+        <div class="fa">Yes. Proof photos are private to your family and are permanently deleted the moment you approve or reject a chore (and automatically after 7 days if not reviewed). See our <a href="https://vasilioskountis-boop.github.io/choreunlock-privacy/">Privacy Policy</a>.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="get" class="beacon">
+  <div class="source"></div>
+  <div class="beam"></div>
+  <span class="spark" style="top:13%;left:15%;font-size:22px">&#10038;</span>
+  <span class="spark" style="top:24%;right:17%;font-size:16px">&#10038;</span>
+  <span class="spark" style="top:46%;left:23%;font-size:13px">&#10038;</span>
+  <span class="spark" style="top:19%;right:33%;font-size:12px">&#10038;</span>
+  <div class="wrap beacon-content">
+    <div class="beacon-word">Chore<span>Unlock</span></div>
+    <h2 class="beacon-head">Chores done.<br>Screen time on.</h2>
+    <p class="beacon-sub">Kids earn their screen time — every single day. Coming soon to iPhone &amp; iPad.</p>
+    <span class="beacon-cta">&#127823; Coming soon to the App Store</span>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><span class="logo"><svg viewBox="0 0 1024 1024"><rect width="1024" height="1024" fill="#2563EB"/><circle cx="512" cy="399" r="184" fill="#fff"/><path d="M425 491 L599 491 L666 819 L358 819 Z" fill="#fff"/></svg></span> ChoreUnlock</div>
+    <div class="foot-links">
+      <a href="https://vasilioskountis-boop.github.io/choreunlock-privacy/">Privacy</a>
+      <a href="https://vasilioskountis-boop.github.io/choreunlock-privacy/terms.html">Terms</a>
+      <a href="https://vasilioskountis-boop.github.io/choreunlock-privacy/support.html">Support</a>
+      <a href="#top">Back to top</a>
+    </div>
+    <div>© 2026 Syzygy Enterprises, LLC</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var v = document.getElementById('adVideo');
+    if (!v) return;
+
+    var soundOn = false;
+    // Whether the visitor has interacted yet. Browsers block audio until then,
+    // so the ad plays muted until the first tap/scroll/click, then unmutes.
+    var interacted = false;
+
+    // Start the ad when it scrolls into view. Once it's playing we DON'T pause
+    // it on scroll-out — it runs to the end even if the visitor scrolls past.
+    // If they scroll back after it already finished, it replays from the start.
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          if (interacted) { v.muted = false; v.volume = 1; }
+          if (v.ended) v.currentTime = 0;
+          var p = v.play();
+          if (p && p.catch) p.catch(function () {});
+        });
+      }, { threshold: 0.5 }); // fire when at least half the video is on screen
+      io.observe(v);
+    }
+
+    // First interaction anywhere unmutes it (only audible while it's on screen).
+    function turnSoundOn() {
+      interacted = true;
+      v.muted = false;
+      v.volume = 1;
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+      ['pointerdown', 'touchstart', 'keydown', 'scroll', 'wheel', 'mousemove'].forEach(function (ev) {
+        window.removeEventListener(ev, turnSoundOn);
+      });
+    }
+    ['pointerdown', 'touchstart', 'keydown', 'scroll', 'wheel', 'mousemove'].forEach(function (ev) {
+      window.addEventListener(ev, turnSoundOn, { once: true, passive: true });
+    });
+  })();
+</script>
+</body>
+</html>
