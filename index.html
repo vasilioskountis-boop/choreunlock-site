@@ -62,24 +62,18 @@
   .cta-note{font-size:13.5px;color:var(--muted);margin-top:14px}
   @media(max-width:860px){.hero-grid{grid-template-columns:1fr;text-align:center}.sub{margin-left:auto;margin-right:auto}.cta-row{justify-content:center}h1{font-size:40px}}
 
-  /* PHONE MOCKUP */
-  .phone{width:270px;margin:0 auto;border-radius:40px;background:#0F172A;padding:12px;box-shadow:0 30px 70px rgba(17,24,39,.28)}
-  .screen{border-radius:30px;overflow:hidden;background:#fff}
-  .p-hero{background:linear-gradient(160deg,var(--indigo),#4F46E5);color:#fff;padding:20px 18px 26px}
-  .p-hero small{opacity:.85;font-weight:700}
-  .p-hero h3{font-size:22px;font-weight:900;margin-top:2px}
-  .p-lock{background:var(--amber-soft);color:#92400E;margin:14px 0;border-radius:14px;padding:12px 14px;font-weight:800;font-size:13.5px;display:flex;gap:9px;align-items:center}
-  .p-body{padding:16px 18px 22px}
-  .p-task{display:flex;align-items:center;gap:11px;padding:11px 0;border-top:1px solid #EEF0F2;font-weight:700;font-size:14px}
-  .p-task .ck{width:22px;height:22px;border-radius:7px;background:#DCFCE7;color:#166534;display:grid;place-items:center;font-size:12px;font-weight:900}
-  .p-task .todo{width:22px;height:22px;border-radius:7px;border:2px solid var(--line)}
-  .p-unlock{background:#DCFCE7;color:#166534;border-radius:14px;padding:12px;text-align:center;font-weight:900;font-size:14px;margin-top:8px}
-
-  /* two overlapping phones: kid's screen in front, parent dashboard behind */
-  .phones{position:relative;width:380px;max-width:100%;height:610px;margin:0 auto}
-  .phones .phone{position:absolute;width:236px;margin:0}
-  .phones .phone.parent{top:-6px;right:-10px;transform:rotate(9deg);z-index:1}
-  .phones .phone.kid{bottom:0;left:-6px;transform:rotate(-5deg);z-index:2}
+  /* PHONE HERO (real screenshots) */
+  .hero-phones{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:470px;filter:drop-shadow(0 30px 60px rgba(17,24,39,.22))}
+  .hero-phones .hp{position:absolute;bottom:0;width:220px;height:auto;border-radius:34px}
+  .hero-phones .hp-main{position:relative;width:262px;z-index:2}
+  .hero-phones .hp-left{left:4%;transform:rotate(-9deg) translateY(26px);z-index:1}
+  .hero-phones .hp-right{right:4%;transform:rotate(9deg) translateY(26px);z-index:1}
+  @media(max-width:860px){
+    .hero-phones{min-height:0;margin-top:24px}
+    .hero-phones .hp{position:static;transform:none;width:auto}
+    .hero-phones .hp-left,.hero-phones .hp-right{display:none}
+    .hero-phones .hp-main{width:240px}
+  }
   /* parent dashboard mock */
   .pd{padding:16px 15px 18px;background:#F7F8FA}
   .pd-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
@@ -268,45 +262,10 @@
       <p class="cta-note">iPhone &amp; iPad · 7-day free trial · Free plan for one child</p>
     </div>
     <div>
-      <div class="phones">
-        <div class="phone parent">
-          <div class="screen pd">
-            <div class="pd-top">
-              <span class="pd-logo">Parent</span>
-              <span class="pd-chip">⏳ 1 to review</span>
-            </div>
-            <div class="pd-card">
-              <div class="pd-row"><span>🧢 Anna</span><span class="pd-lvl">🏅 Lvl 3</span></div>
-              <div class="pd-stat">🔥 5-day streak · 🏆 145 XP earned</div>
-            </div>
-            <div class="pd-card">
-              <div class="pd-row"><span>⚡ Anna's screen time</span></div>
-              <div class="pd-stat">0:22:00 left today · tap +15m to reward</div>
-            </div>
-            <div class="pd-review">
-              <div class="pd-rtitle">🧹 Tidy the playroom</div>
-              <div class="pd-photo"><img src="playroom.jpg" alt="Tidy playroom" onerror="this.style.display='none'"></div>
-              <div class="pd-btns"><span class="pd-approve">✓ Approve</span><span class="pd-reject">Reject</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="phone kid">
-          <div class="screen">
-            <div class="p-hero">
-              <small>Good morning</small>
-              <h3>Anna! ☀️</h3>
-              <div class="p-lock">🔒 2 missions to go and it's yours!</div>
-            </div>
-            <div class="p-body">
-              <div class="p-task"><span class="ck">✓</span> Homework</div>
-              <div class="p-task"><span class="ck">✓</span> Make the bed</div>
-              <div class="p-task"><span class="ck">✓</span> Feed the dog</div>
-              <div class="p-task"><span class="todo"></span> Tidy the playroom</div>
-              <div class="p-task"><span class="todo"></span> Brush teeth 🌙</div>
-              <div class="p-unlock">Finish them all → apps unlock 🎉</div>
-            </div>
-          </div>
-        </div>
+      <div class="hero-phones">
+        <img class="hp hp-left"  src="framed-4.png" alt="Make a Deal — kids pitch chores for XP" loading="eager">
+        <img class="hp hp-main"  src="framed-1.png" alt="ChoreUnlock — who's earning today?" loading="eager">
+        <img class="hp hp-right" src="framed-5.png" alt="Parent dashboard — missions, streaks and XP" loading="eager">
       </div>
     </div>
   </div>
