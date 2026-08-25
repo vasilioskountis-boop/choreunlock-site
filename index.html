@@ -9,13 +9,14 @@
 <meta property="og:description" content="Kids earn screen time by doing chores. The device locks and unlocks itself, automatically." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://choreunlock.com/" />
-<meta property="og:image" content="https://choreunlock.com/og.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+<meta property="og:image" content="https://choreunlock.com/og-screentime.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1080" />
+<meta property="og:image:height" content="2346" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="ChoreUnlock — No chores. No screen time." />
 <meta name="twitter:description" content="Kids earn screen time by doing chores. The device locks and unlocks itself, automatically." />
-<meta name="twitter:image" content="https://choreunlock.com/og.png" />
+<meta name="twitter:image" content="https://choreunlock.com/og-screentime.jpg" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'%3E%3Crect width='1024' height='1024' rx='230' fill='%232563EB'/%3E%3Ccircle cx='512' cy='399' r='184' fill='white'/%3E%3Cpath d='M425 491 L599 491 L666 819 L358 819 Z' fill='white'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -601,13 +602,10 @@
     // First interaction anywhere unmutes it (only audible while it's on screen).
     function turnSoundOn() {
       interacted = true;
-      v.muted = false;
-      v.volume = 1;
-      var p = v.play();
-      if (p && p.catch) p.catch(function () {});
-      ['pointerdown', 'touchstart', 'keydown', 'scroll', 'wheel', 'mousemove'].forEach(function (ev) {
-        window.removeEventListener(ev, turnSoundOn);
-      });
+      // Only unmute if the ad is already on screen and playing (started by the
+      // observer). NEVER call play() here — a scroll anywhere else on the page
+      // must not start the video before it has scrolled into its section.
+      if (!v.paused) { v.muted = false; v.volume = 1; }
     }
     ['pointerdown', 'touchstart', 'keydown', 'scroll', 'wheel', 'mousemove'].forEach(function (ev) {
       window.addEventListener(ev, turnSoundOn, { once: true, passive: true });
