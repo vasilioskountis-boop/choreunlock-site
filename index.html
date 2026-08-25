@@ -201,7 +201,7 @@
   .stat .warn.top{top:0}.stat .warn.bot{bottom:0}
   .stat .big{font-size:clamp(62px,13vw,140px);font-weight:900;color:#F5C542;letter-spacing:-4px;line-height:1;text-shadow:0 0 60px rgba(245,197,66,.35)}
   .stat .mid{font-size:clamp(20px,3.4vw,34px);font-weight:900;margin-top:8px}
-  .stat .stsub{font-size:17px;color:#B9C1D2;max-width:600px;margin:22px auto 0;line-height:1.5}
+  .stat .stsub{font-size:20px;color:#E8ECF5;font-weight:600;max-width:640px;margin:22px auto 0;line-height:1.55}
   .stat .stsub b{color:#F5C542}
 
   /* ===== THE QUESTION ===== */
@@ -229,19 +229,54 @@
   .hvideo{flex:0 1 340px;display:flex;justify-content:center}
   .hvideo video{width:100%;max-width:330px;border-radius:26px;background:#000;box-shadow:0 26px 70px rgba(17,24,39,.32);display:block}
   @media(max-width:760px){.hvideo video{max-width:260px}}
+  /* founding-family urgency */
+  .founding-bar{display:block;text-align:center;background:linear-gradient(90deg,#4338CA,#6D28D9);color:#fff;font-size:14px;font-weight:700;padding:10px 16px;text-decoration:none;letter-spacing:.2px}
+  .founding-bar b{color:#FFD24D}
+  .founding-bar .fb-cta{text-decoration:underline;white-space:nowrap}
+  .founding-note{max-width:780px;margin:0 auto 30px;text-align:center;background:linear-gradient(135deg,#FFF3C4,#FFD84D);border:3px solid #F59E0B;border-radius:24px;padding:30px 28px;box-shadow:0 18px 44px rgba(245,158,11,.35)}
+  .founding-note .fn-badge{display:inline-block;background:#7C2D12;color:#FFD84D;font-size:12.5px;font-weight:900;letter-spacing:.6px;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+  .founding-note h3{margin:14px 0 8px;font-size:27px;color:#7C2D12;font-weight:900;line-height:1.2}
+  .founding-note .fn-price{color:#B45309}
+  .founding-note p{margin:0 auto 18px;max-width:600px;color:#7C2D12;font-size:16px;line-height:1.6;font-weight:600}
+  .waitlist{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px auto 0;max-width:470px}
+  .waitlist input{flex:1 1 240px;min-width:200px;padding:15px 16px;border-radius:14px;border:2px solid #C7D2FE;font-size:16px;background:#fff;color:#111827}
+  .waitlist button{padding:15px 24px;border:none;border-radius:14px;background:#FFD24D;color:#3730A3;font-size:16px;font-weight:800;cursor:pointer}
+  .wl-note{margin-top:14px;font-size:13px;color:#C7D2FE}
+  /* manifesto / mission — dark premium "moment" */
+  .manifesto{position:relative;overflow:hidden;background:radial-gradient(125% 100% at 50% -8%,#28205F 0%,#160F3E 46%,#0A0722 100%);padding:104px 0;color:#fff;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+  .manifesto .m-glow{position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:min(640px,88%);height:440px;background:radial-gradient(closest-side,rgba(124,92,255,.38),transparent 70%);filter:blur(12px);pointer-events:none}
+  .manifesto .spark{position:absolute;color:#FFD24D;pointer-events:none;opacity:.9}
+  .manifesto-in{position:relative;z-index:1;max-width:720px;margin:0 auto;text-align:center;padding:0 22px}
+  .manifesto-in .m-eyebrow{font-size:13px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#9D8BFF;margin-bottom:22px}
+  .manifesto-in p{font-size:20px;line-height:1.7;color:#C9D0E8;margin:0 0 20px;font-weight:500}
+  .manifesto-in .lead-line{font-size:25px;font-weight:800;color:#fff;line-height:1.45;margin-bottom:26px}
+  .manifesto-in .emph{font-size:33px;font-weight:900;color:#FF7A7A;margin:30px 0;letter-spacing:-.5px}
+  .manifesto-in .ask{font-size:25px;font-weight:800;color:#FFD24D;line-height:1.45}
+  .manifesto-close{margin-top:50px}
+  .manifesto-close .mc-soon{font-size:14px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#8B93B8}
+  .manifesto-close .mc-brand{font-size:50px;font-weight:900;color:#fff;margin:8px 0 6px;letter-spacing:-1px}
+  .manifesto-close .mc-brand span{color:#6EA8FF}
+  .manifesto-close .mc-tag{font-size:20px;font-weight:800;color:#FFC94D}
+  @media(max-width:760px){
+    .manifesto{padding:78px 0}
+    .manifesto-in p{font-size:18px}.manifesto-in .lead-line{font-size:21px}
+    .manifesto-in .emph{font-size:27px}.manifesto-in .ask{font-size:21px}.manifesto-close .mc-brand{font-size:40px}
+  }
 </style>
 </head>
 <body>
 
+<a class="founding-bar" href="#get">🚀 <b>Launching soon.</b> Founding Families lock in Premium at <b>$5.99/mo — for life.</b> <span class="fb-cta">Join the waitlist →</span></a>
+
 <nav>
   <div class="wrap nav-in">
-    <a class="brand" href="#top"><span class="logo"><svg viewBox="0 0 1024 1024"><rect width="1024" height="1024" fill="#2563EB"/><circle cx="512" cy="399" r="184" fill="#fff"/><path d="M425 491 L599 491 L666 819 L358 819 Z" fill="#fff"/></svg></span> ChoreUnlock</a>
+    <a class="brand" href="#top"><img class="logo" src="appicon.png" alt="ChoreUnlock app icon"> ChoreUnlock</a>
     <div class="nav-links">
       <a href="#how">How it works</a>
       <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-pop" href="#get">Get ChoreUnlock</a>
+      <a class="btn btn-pop" href="#get">Join the waitlist</a>
     </div>
   </div>
 </nav>
@@ -256,10 +291,10 @@
       </h1>
       <p class="sub">ChoreUnlock turns chores into screen time. Kids earn their apps by finishing their chores — and the tablet <b>locks and unlocks itself.</b> No nagging, no fiddling with Settings, no arguments.</p>
       <div class="cta-row">
-        <a class="btn btn-pop" href="#get">Get ChoreUnlock</a>
+        <a class="btn btn-pop" href="#get">Join the founding families →</a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
-      <p class="cta-note">iPhone &amp; iPad · 7-day free trial · Free plan for one child</p>
+      <p class="cta-note">iPhone &amp; iPad · 7-day free trial · <b>Founding families: Premium $5.99/mo for life</b></p>
     </div>
     <div>
       <div class="hero-phones">
@@ -271,12 +306,32 @@
   </div>
 </header>
 
+<section id="get" class="beacon">
+  <div class="source"></div>
+  <div class="beam"></div>
+  <span class="spark" style="top:13%;left:15%;font-size:22px">&#10038;</span>
+  <span class="spark" style="top:24%;right:17%;font-size:16px">&#10038;</span>
+  <span class="spark" style="top:46%;left:23%;font-size:13px">&#10038;</span>
+  <span class="spark" style="top:19%;right:33%;font-size:12px">&#10038;</span>
+  <div class="wrap beacon-content">
+    <div class="beacon-word">Chore<span>Unlock</span></div>
+    <h2 class="beacon-head">Lock in $5.99 — forever.</h2>
+    <p class="beacon-sub">Join before we launch and keep ChoreUnlock Premium at <b>$5.99/mo for life</b> — everyone after launch pays $8.99. Be first on iPhone &amp; iPad.</p>
+    <form class="waitlist" onsubmit="event.preventDefault();var e=encodeURIComponent(this.email.value);window.location.href='mailto:vasili@syzygy-enterprises.com?subject=ChoreUnlock%20founding%20waitlist&amp;body=Please%20add%20me%20to%20the%20founding%20waitlist%3A%20'+e;">
+      <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address">
+      <button type="submit">Join the waitlist →</button>
+    </form>
+    <p class="wl-note">One email when we launch, plus your founding price locked in. No spam. 🍏 Coming soon to the App Store.</p>
+  </div>
+</section>
+
 <section class="stat">
   <span class="warn top"></span>
   <div class="wrap">
-    <div class="big">5 HOURS</div>
-    <div class="mid">of brainrot. Every. Single. Day.</div>
-    <p class="stsub">That's the average kid's daily screen time. Flip it: <b>chores first, screen time after</b> — automatically.</p>
+    <div class="big">1,865 HOURS</div>
+    <div class="mid">every year, staring at a screen.</div>
+    <p class="stsub">That's what the average kid hands the feed.</p>
+    <p class="stsub">Flip it: <b>chores first, screen time after</b> — automatically.</p>
   </div>
   <span class="warn bot"></span>
 </section>
@@ -288,7 +343,7 @@
         <span class="tape" style="top:-15px;left:56px;transform:rotate(-36deg)"></span>
         <span class="tape" style="top:-17px;right:46px;transform:rotate(34deg)"></span>
         <div class="ransom" style="justify-content:center">
-          <span class="cut c-indigo">WE</span><span class="cut c-amber">HAVE</span><span class="cut c-red">CONTROL</span>
+          <span class="cut c-indigo">YOU</span><span class="cut c-amber">HAVE</span><span class="cut c-red">CONTROL</span>
         </div>
         <div class="terms">The apps stay <b>locked</b> until the bed is made, the homework is checked, and today's <b>missions are done</b>. Finish them &mdash; the apps unlock on their own.</div>
         <div class="signed">&mdash; Mom &amp; Dad</div>
@@ -301,10 +356,24 @@
   </div>
 </section>
 
-<section class="question">
-  <div class="wrap">
-    <h2>Who's raising your kids &mdash; <span class="algo">the algorithm</span> or <span class="you">you</span>?</h2>
-    <p>Take screen time off autopilot. With ChoreUnlock it's <b>earned</b> &mdash; beds made, homework done, teeth brushed &mdash; not endless.</p>
+<section class="manifesto">
+  <div class="m-glow"></div>
+  <span class="spark" style="top:11%;left:14%;font-size:20px">&#10038;</span>
+  <span class="spark" style="top:18%;right:15%;font-size:14px">&#10038;</span>
+  <span class="spark" style="top:72%;left:19%;font-size:13px">&#10038;</span>
+  <span class="spark" style="top:82%;right:21%;font-size:16px">&#10038;</span>
+  <div class="wrap manifesto-in">
+    <p class="m-eyebrow">Why we built ChoreUnlock</p>
+    <p class="lead-line">We expect our children to put down devices deliberately designed by some of the smartest people in the world to keep them engaged.</p>
+    <p class="emph">It's not a fair fight.</p>
+    <p class="ask">But what if screen time wasn't the enemy?</p>
+    <p class="ask">What if it was the <b>reward</b>?</p>
+    <p>We've built a better way to connect screen time with responsibility — and turn everyday chores into good habits.</p>
+    <div class="manifesto-close">
+      <div class="mc-soon">Coming soon</div>
+      <div class="mc-brand">Chore<span>Unlock</span></div>
+      <div class="mc-tag">Responsible today. Unstoppable tomorrow.</div>
+    </div>
   </div>
 </section>
 
@@ -371,11 +440,15 @@
     <p class="lead">More than a chore chart — a little game that makes helping out feel rewarding.</p>
     <div class="feat">
       <div class="card"><div class="ic">🔒</div><h4>Auto-Lock</h4><p>Apps lock until chores are done and unlock automatically when they are.</p><span class="tag">PREMIUM</span></div>
-      <div class="card"><div class="ic">⚡</div><h4>Earn screen time with XP</h4><p>Beyond on/off: kids spend the XP they earn to buy screen-time minutes, then a countdown timer runs. Screen time becomes chosen, not endless.</p><span class="tag">PREMIUM</span></div>
-      <div class="card"><div class="ic">🤖</div><h4>AI photo check</h4><p>Snap a proof photo and AI checks the chore's really done — so you approve less.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">⚡</div><h4>Earn screen time with XP</h4><p>Kids spend the XP they earn to buy screen-time minutes, then a countdown runs. Screen time becomes chosen, not endless.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">🤖</div><h4>AI proof check — photo &amp; voice</h4><p>Snap a photo or record a prayer; AI checks it's really done, hears a recitation word-for-word, and even coaches your child on what to fix.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">🌙</div><h4>Morning &amp; evening routines</h4><p>Time-locked missions — a bedtime chore can re-lock the tablet in the evening until it's done, so nighttime routines actually happen.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">🤝</div><h4>Make a Deal</h4><p>Kids pitch their own chores for XP and negotiate with you — motivation on their terms.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">🎯</div><h4>Wishlist goals</h4><p>Kids save the XP they earn toward a prize they choose — a real goal to work for.</p></div>
       <div class="card"><div class="ic">⭐</div><h4>XP, levels &amp; streaks</h4><p>Every mission earns XP. Kids level up and build streaks that keep them going.</p></div>
-      <div class="card"><div class="ic">🎁</div><h4>Mystery Chest</h4><p>Kids spend earned XP on a surprise prize — the thrill keeps them motivated.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">🎁</div><h4>Mystery Chest &amp; rewards</h4><p>Kids spend earned XP on a surprise chest or the rewards you set — the thrill keeps them motivated.</p><span class="tag">PREMIUM</span></div>
       <div class="card"><div class="ic">🏆</div><h4>Family &amp; Daily Challenges</h4><p>Shared goals and daily bonus missions the whole crew can conquer together.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">👪</div><h4>Two parents, one plan</h4><p>Invite your spouse — you both manage the same kids and chores from your own phones, always in sync.</p><span class="tag">PREMIUM</span></div>
       <div class="card"><div class="ic">💛</div><h4>Values &amp; character</h4><p>Tie missions to the values you care about — fully customizable to your family.</p></div>
     </div>
   </div>
@@ -386,6 +459,12 @@
     <p class="kicker">Pricing</p>
     <h2>Start free. Unlock everything for less than a coffee.</h2>
     <p class="lead">Try every Premium feature free for 7 days.</p>
+    <div class="founding-note">
+      <span class="fn-badge">⚡ Founding offer — before launch</span>
+      <h3>ChoreUnlock Premium — <span class="fn-price">$5.99</span>/mo for founding families</h3>
+      <p>Join the waitlist before we launch and keep Premium at <b>$5.99/mo — for life.</b> Everyone after launch pays $8.99. Your price is locked in as long as you stay subscribed.</p>
+      <a class="btn btn-pop" href="#get">Grab the founding price →</a>
+    </div>
     <div class="price">
       <div class="plan">
         <h3>Free</h3>
@@ -480,24 +559,9 @@
   </div>
 </section>
 
-<section id="get" class="beacon">
-  <div class="source"></div>
-  <div class="beam"></div>
-  <span class="spark" style="top:13%;left:15%;font-size:22px">&#10038;</span>
-  <span class="spark" style="top:24%;right:17%;font-size:16px">&#10038;</span>
-  <span class="spark" style="top:46%;left:23%;font-size:13px">&#10038;</span>
-  <span class="spark" style="top:19%;right:33%;font-size:12px">&#10038;</span>
-  <div class="wrap beacon-content">
-    <div class="beacon-word">Chore<span>Unlock</span></div>
-    <h2 class="beacon-head">Chores done.<br>Screen time on.</h2>
-    <p class="beacon-sub">Kids earn their screen time — every single day. Coming soon to iPhone &amp; iPad.</p>
-    <span class="beacon-cta">&#127823; Coming soon to the App Store</span>
-  </div>
-</section>
-
 <footer>
   <div class="wrap foot-in">
-    <div class="brand"><span class="logo"><svg viewBox="0 0 1024 1024"><rect width="1024" height="1024" fill="#2563EB"/><circle cx="512" cy="399" r="184" fill="#fff"/><path d="M425 491 L599 491 L666 819 L358 819 Z" fill="#fff"/></svg></span> ChoreUnlock</div>
+    <div class="brand"><img class="logo" src="appicon.png" alt="ChoreUnlock app icon"> ChoreUnlock</div>
     <div class="foot-links">
       <a href="https://choreunlock.com/privacy.html">Privacy</a>
       <a href="https://choreunlock.com/terms.html">Terms</a>
