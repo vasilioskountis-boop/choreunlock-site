@@ -256,6 +256,7 @@
   .founding-note p{margin:0 auto 18px;max-width:600px;color:#7C2D12;font-size:16px;line-height:1.6;font-weight:600}
   .waitlist{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px auto 0;max-width:470px}
   .waitlist input{flex:1 1 240px;min-width:200px;padding:15px 16px;border-radius:14px;border:2px solid #C7D2FE;font-size:16px;background:#fff;color:#111827}
+  .waitlist input[name=code]{flex:1 1 150px;min-width:140px;text-transform:uppercase}
   .waitlist button{padding:15px 24px;border:none;border-radius:14px;background:#FFD24D;color:#3730A3;font-size:16px;font-weight:800;cursor:pointer}
   .wl-note{margin-top:14px;font-size:13px;color:#C7D2FE}
   /* manifesto / mission — dark premium "moment" */
@@ -333,11 +334,44 @@
     <div class="beacon-word">Chore<span>Unlock</span></div>
     <h2 class="beacon-head">Lock in $5.99 — forever.</h2>
     <p class="beacon-sub">Join before we launch and keep ChoreUnlock Premium at <b>$5.99/mo for life</b> — everyone after launch pays $8.99. Be first on iPhone &amp; iPad.</p>
-    <form class="waitlist" onsubmit="event.preventDefault();var e=encodeURIComponent(this.email.value);window.location.href='mailto:vasili@syzygy-enterprises.com?subject=ChoreUnlock%20founding%20waitlist&amp;body=Please%20add%20me%20to%20the%20founding%20waitlist%3A%20'+e;">
+    <form class="waitlist" id="waitlist-form">
       <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address">
+      <input type="text" name="code" placeholder="Invite code (optional)" aria-label="Invite code" autocapitalize="characters" autocomplete="off">
       <button type="submit">Join the waitlist →</button>
     </form>
-    <p class="wl-note">One email when we launch, plus your founding price locked in. No spam. 🍏 Coming soon to the App Store.</p>
+    <p class="wl-note" id="wl-note">One email when we launch, plus your founding price locked in. No spam. 🍏 Coming soon to the App Store.</p>
+    <script>
+    (function(){
+      var SB_URL='https://fpljjcxrevptehdwvypb.supabase.co/rest/v1/waitlist';
+      var SB_KEY='sb_publishable_zd7_g7OdU-exddsMEob1HQ_m0Osm4ho';
+      var form=document.getElementById('waitlist-form');
+      var note=document.getElementById('wl-note');
+      var params=new URLSearchParams(window.location.search);
+      var urlCode=params.get('code')||params.get('invite');
+      if(urlCode){form.code.value=urlCode.toUpperCase();}
+      function done(msg){form.style.display='none';note.innerHTML=msg;note.style.fontWeight='700';}
+      form.addEventListener('submit',function(ev){
+        ev.preventDefault();
+        var email=form.email.value.trim().toLowerCase();
+        var code=form.code.value.trim().toUpperCase()||null;
+        var btn=form.querySelector('button');
+        btn.disabled=true;btn.textContent='Joining…';
+        fetch(SB_URL,{
+          method:'POST',
+          headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+          body:JSON.stringify({email:email,invite_code:code,source:'site'})
+        }).then(function(res){
+          if(res.ok){done('🎉 You\'re in! Your founding price of $5.99/mo is locked. We\'ll email you the moment we launch.');}
+          else if(res.status===409){done('✅ You\'re already on the list — your founding price is locked in.');}
+          else{throw new Error('bad status '+res.status);}
+        }).catch(function(){
+          btn.disabled=false;btn.textContent='Join the waitlist →';
+          window.location.href='mailto:vasili@syzygy-enterprises.com?subject=ChoreUnlock%20founding%20waitlist&body='
+            +encodeURIComponent('Please add me to the founding waitlist: '+email+(code?' (invite code: '+code+')':''));
+        });
+      });
+    })();
+    </script>
   </div>
 </section>
 
