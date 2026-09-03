@@ -279,6 +279,36 @@
     .manifesto-in p{font-size:18px}.manifesto-in .lead-line{font-size:21px}
     .manifesto-in .emph{font-size:27px}.manifesto-in .ask{font-size:21px}.manifesto-close .mc-brand{font-size:40px}
   }
+  /* shots carousel — App Store screens in the iPad shell */
+  .shots{background:#0A0722;padding:84px 0 70px;color:#fff;border-bottom:1px solid rgba(255,255,255,.06)}
+  .shots .shots-head{max-width:820px;margin:0 auto;text-align:center;padding:0 22px}
+  .shots .kicker{color:#9D8BFF}
+  .shots h2{color:#fff}
+  .shots .lead{color:#C9D0E8;margin-left:auto;margin-right:auto}
+  .shots-viewport{position:relative;max-width:1220px;margin:44px auto 0;padding:0 58px}
+  .shots-track{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:96px 10px 96px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .shots-track::-webkit-scrollbar{display:none}
+  .shot{flex:0 0 430px;scroll-snap-align:center;margin:0;position:relative;transition:transform .3s ease}
+  .shot img{width:100%;height:auto;display:block;border-radius:26px;box-shadow:0 22px 48px rgba(0,0,0,.5);transition:box-shadow .3s ease}
+  .shot.zoom{transform:scale(1.25);z-index:3}
+  .shot.zoom img{box-shadow:0 34px 72px rgba(0,0,0,.7)}
+  .shot figcaption{margin-top:16px;text-align:center;padding:0 6px}
+  .shot figcaption b{display:block;color:#fff;font-size:16.5px;font-weight:800;letter-spacing:-.2px}
+  .shot figcaption span{display:block;color:#8B93B8;font-size:13.5px;line-height:1.55;margin-top:5px}
+  .shots-arrow{position:absolute;top:370px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font-size:24px;line-height:1;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background .15s}
+  .shots-arrow:hover{background:rgba(255,255,255,.18)}
+  .shots-arrow.prev{left:8px}
+  .shots-arrow.next{right:8px}
+  .shots-dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+  .shots-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.22);cursor:pointer;transition:background .15s,transform .15s}
+  .shots-dots button.on{background:#FFD24D;transform:scale(1.25)}
+  @media(max-width:760px){
+    .shots{padding:64px 0 56px}
+    .shots-viewport{padding:0 16px;margin-top:30px}
+    .shots-arrow{display:none}
+    .shots-track{padding:8px 10px 20px}
+    .shot{flex:0 0 84vw}
+  }
 </style>
 </head>
 <body>
@@ -434,6 +464,61 @@
       <div class="mc-tag">Responsible today. Unstoppable tomorrow.</div>
     </div>
   </div>
+</section>
+
+<section class="shots" id="peek">
+  <div class="shots-head">
+    <p class="kicker">See it in action</p>
+    <h2>A peek inside ChoreUnlock.</h2>
+    <p class="lead">The same screens families see on the App Store — swipe through.</p>
+  </div>
+  <div class="shots-viewport">
+    <button class="shots-arrow prev" type="button" aria-label="Previous screenshot">&lsaquo;</button>
+    <div class="shots-track" id="shotsTrack">
+      <figure class="shot">
+        <img src="shots/shot-01.jpg" alt="Missions feel like wins — the child home screen" loading="lazy" width="840" height="1095">
+        <figcaption><b>Missions feel like wins.</b><span>Mak cheers every finished chore and turns follow-through into momentum.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/shot-02.jpg" alt="Rewards they want — deals, goals and bonus offers" loading="lazy" width="840" height="1095">
+        <figcaption><b>Rewards they want.</b><span>Kids pitch deals, save XP toward real goals, and jump on bonus offers.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/shot-03.jpg" alt="Same plan, same page — invite your spouse" loading="lazy" width="840" height="1095">
+        <figcaption><b>Same plan, same page.</b><span>Invite your spouse — you both manage the same kids, routines and rewards.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/shot-04.jpg" alt="Proof without the friction — AI photo check" loading="lazy" width="840" height="1095">
+        <figcaption><b>Proof, without the friction.</b><span>Kids snap a photo; the AI checks it so you review chores in seconds.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/shot-05.jpg" alt="Screen time, earned — the XP economy" loading="lazy" width="840" height="1095">
+        <figcaption><b>Screen time, earned.</b><span>Chores earn XP, XP buys minutes — and the device unlocks automatically.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/shot-06.jpg" alt="Clear today — kids see exactly what needs to be done" loading="lazy" width="840" height="1095">
+        <figcaption><b>Clear today.</b><span>Kids see exactly what needs to be done — and what every mission is worth.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/shot-07.jpg" alt="Build values — responsibility, gratitude, faith and service" loading="lazy" width="840" height="1095">
+        <figcaption><b>Build values.</b><span>Responsibility, gratitude, faith and service grow through daily action.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/shot-08.jpg" alt="One dashboard — whole-family progress at a glance" loading="lazy" width="840" height="1095">
+        <figcaption><b>One dashboard.</b><span>See progress across the whole family at a glance, from your phone.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/shot-09.jpg" alt="Freedom with follow-through — auto-lock and challenges" loading="lazy" width="840" height="1095">
+        <figcaption><b>Freedom with follow-through.</b><span>Auto-lock and family challenges keep the routine running on its own.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/shot-10.jpg" alt="Less arguing — kids earn screen time by getting real things done" loading="lazy" width="840" height="1095">
+        <figcaption><b>Less arguing.</b><span>Kids earn screen time by getting real things done. Small chores, big wins.</span></figcaption>
+      </figure>
+    </div>
+    <button class="shots-arrow next" type="button" aria-label="Next screenshot">&rsaquo;</button>
+  </div>
+  <div class="shots-dots" id="shotsDots" aria-hidden="true"></div>
 </section>
 
 <section id="how" style="background:var(--bg-soft)">
@@ -632,6 +717,132 @@
 </footer>
 
 <script>
+  (function () {
+    var track = document.getElementById('shotsTrack');
+    if (!track) return;
+    var reals = Array.prototype.slice.call(track.querySelectorAll('.shot'));
+    var N = reals.length;
+    reals.forEach(function (s, i) { s.setAttribute('data-index', i); });
+
+    // seamless circle: clone the last few slides onto the front and the first
+    // few onto the end; landing on a clone silently teleports to its twin
+    var TAIL = 3;
+    for (var i = 0; i < TAIL; i++) {
+      var head = reals[N - 1 - i].cloneNode(true);
+      head.setAttribute('aria-hidden', 'true');
+      track.insertBefore(head, track.firstChild);
+      var tail = reals[i].cloneNode(true);
+      tail.setAttribute('aria-hidden', 'true');
+      track.appendChild(tail);
+    }
+    var all = Array.prototype.slice.call(track.querySelectorAll('.shot'));
+
+    var dotsWrap = document.getElementById('shotsDots');
+    var dots = [];
+    reals.forEach(function (s, i) {
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.addEventListener('click', function () { scrollToEl(reals[i]); nudge(); });
+      dotsWrap.appendChild(d);
+      dots.push(d);
+    });
+
+    function relLeft(el) { return el.offsetLeft - track.offsetLeft; }
+    function scrollToEl(el, instant) {
+      track.scrollTo({
+        left: relLeft(el) + el.offsetWidth / 2 - track.clientWidth / 2,
+        behavior: instant ? 'instant' : 'smooth'
+      });
+    }
+    function current() {
+      var center = track.scrollLeft + track.clientWidth / 2;
+      var best = 0, bestDist = Infinity;
+      all.forEach(function (s, i) {
+        var d = Math.abs(relLeft(s) + s.offsetWidth / 2 - center);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      return best;
+    }
+    function paint() {
+      var r = +all[current()].getAttribute('data-index');
+      dots.forEach(function (d, k) { d.className = k === r ? 'on' : ''; });
+    }
+    function goStep(dir) {
+      var i = current();
+      if (all[i].getAttribute('aria-hidden') === 'true') {
+        scrollToEl(reals[+all[i].getAttribute('data-index')], true);
+        i = current();
+      }
+      var el = all[i + dir];
+      if (el) { scrollToEl(el); }
+    }
+
+    // auto-rotate: advance every 2.8s, pause on hover/touch & off-screen
+    var timer = null, inView = true, holding = false;
+    function play() {
+      if (timer || !inView || holding) return;
+      timer = setInterval(function () { goStep(1); }, 2800);
+    }
+    function stop() { clearInterval(timer); timer = null; }
+    function nudge() { stop(); play(); }
+    track.addEventListener('pointerenter', function () { holding = true; stop(); });
+    track.addEventListener('pointerleave', function () { holding = false; play(); });
+    track.addEventListener('touchstart', function () { holding = true; stop(); }, {passive: true});
+    track.addEventListener('touchend', function () { holding = false; play(); }, {passive: true});
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries[0].isIntersecting;
+        if (inView) { play(); } else { stop(); }
+      }, {threshold: .25}).observe(track);
+    }
+
+    // after any scroll settles on a clone, jump to the identical real slide
+    var settleT;
+    track.addEventListener('scroll', function () {
+      requestAnimationFrame(paint);
+      clearTimeout(settleT);
+      settleT = setTimeout(function () {
+        var el = all[current()];
+        if (el.getAttribute('aria-hidden') === 'true') {
+          scrollToEl(reals[+el.getAttribute('data-index')], true);
+        }
+      }, 150);
+    }, {passive: true});
+
+    document.querySelector('.shots-arrow.prev').addEventListener('click', function () { goStep(-1); nudge(); });
+    document.querySelector('.shots-arrow.next').addEventListener('click', function () { goStep(1); nudge(); });
+
+    // desktop: glide the hovered slide to the center (after a short rest,
+    // so sweeping the cursor across the row doesn't drag the track around)
+    if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+      var hoverT, zoomed = null;
+      var setZoom = function (s) {
+        if (zoomed === s) { return; }
+        if (zoomed) { zoomed.classList.remove('zoom'); }
+        zoomed = s;
+        if (s) { s.classList.add('zoom'); }
+      };
+      all.forEach(function (s) {
+        s.addEventListener('pointermove', function () {
+          clearTimeout(hoverT);
+          hoverT = setTimeout(function () {
+            setZoom(s);
+            var offCenter = relLeft(s) + s.offsetWidth / 2 - (track.scrollLeft + track.clientWidth / 2);
+            if (Math.abs(offCenter) > 20) { scrollToEl(s); }
+          }, 130);
+        });
+      });
+      track.addEventListener('pointerleave', function () {
+        clearTimeout(hoverT);
+        setZoom(null);
+      });
+    }
+
+    scrollToEl(reals[0], true);
+    paint();
+    play();
+  })();
+
   (function () {
     var v = document.getElementById('adVideo');
     if (!v) return;
