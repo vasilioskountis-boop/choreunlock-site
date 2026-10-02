@@ -35,6 +35,13 @@
   .btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(55,48,163,.32)}
   .btn.ghost{background:#fff;color:var(--indigo);border:1.5px solid var(--line);box-shadow:none}
   .pill{display:inline-block;background:var(--amber-soft);color:#92400E;font-weight:800;font-size:12.5px;letter-spacing:.4px;padding:6px 12px;border-radius:999px;text-transform:uppercase}
+  /* black App Store badge button */
+  .btn-store{display:inline-flex;align-items:center;gap:11px;background:#111;color:#fff;border-radius:14px;padding:11px 22px;box-shadow:0 8px 24px rgba(17,24,39,.3);transition:transform .12s ease,box-shadow .12s ease}
+  .btn-store:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(17,24,39,.38)}
+  .btn-store svg{width:26px;height:26px;flex:none}
+  .btn-store .bs-txt{display:flex;flex-direction:column;line-height:1.15;text-align:left}
+  .btn-store .bs-small{font-size:11px;font-weight:700;opacity:.85;letter-spacing:.2px}
+  .btn-store .bs-big{font-size:18px;font-weight:900;letter-spacing:.2px}
   .pill-hero{font-size:17.5px;padding:12px 24px;letter-spacing:0;text-transform:none}
 
   /* NAV */
@@ -334,7 +341,7 @@
 </head>
 <body>
 
-<a class="founding-bar" href="#get">🎉 <b>Free to download.</b> Founding families lock in <b>Premium — $5.99/mo for life</b> (reg. $8.99). <span class="fb-cta">Join free →</span></a>
+<a class="founding-bar" href="https://apps.apple.com/app/id6798913558">🎉 <b>We're LIVE on the App Store!</b> Founding families lock in <b>Premium — $5.99/mo for life</b> (reg. $8.99) — launch window only. <span class="fb-cta">Download free →</span></a>
 
 <nav>
   <div class="wrap nav-in">
@@ -344,7 +351,7 @@
       <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-pop" href="#get">Join free</a>
+      <a class="btn btn-pop" href="https://apps.apple.com/app/id6798913558">Download free</a>
     </div>
   </div>
 </nav>
@@ -359,10 +366,13 @@
       </h1>
       <p class="sub">Nothing good should come free — not even screen time. ChoreUnlock turns it into a wage: <b>chores in, minutes out.</b> The tablet locks and unlocks itself automatically, so there's no nagging, no fiddling with Settings, and no arguments to lose.</p>
       <div class="cta-row">
-        <a class="btn btn-pop" href="#get">Join free →</a>
+        <a class="btn-store" href="https://apps.apple.com/app/id6798913558" aria-label="Download ChoreUnlock on the App Store">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+          <span class="bs-txt"><span class="bs-small">Download on the</span><span class="bs-big">App Store</span></span>
+        </a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
-      <p class="cta-sub">The app is <b>free to download</b> — and free for one child, forever. Founding families lock in optional <b>Premium at $5.99/mo for life</b> (reg. $8.99).</p>
+      <p class="cta-sub">ChoreUnlock is <b>live on the App Store</b> — free to download, and free for one child, forever. Founding families lock in optional <b>Premium at $5.99/mo for life</b> (reg. $8.99) during the launch window.</p>
       <p class="cta-note">✓ Free to download &nbsp;·&nbsp; ✓ One child free, forever &nbsp;·&nbsp; ✓ Premium optional — 7-day trial</p>
     </div>
     <div>
@@ -384,17 +394,23 @@
   <span class="spark" style="top:19%;right:33%;font-size:12px">&#10038;</span>
   <div class="wrap beacon-content">
     <div class="beacon-word">Chore<span>Unlock</span></div>
-    <h2 class="beacon-head">Start free.<br><span class="bh2">Lock in Founder's Premium.</span></h2>
-    <p class="beacon-sub">ChoreUnlock is <b>free to download</b> and free for one child.</p>
+    <h2 class="beacon-head">We're live. Start free.<br><span class="bh2">Lock in Founder's Premium.</span></h2>
+    <p class="beacon-sub">ChoreUnlock is <b>on the App Store now</b> — free to download and free for one child.</p>
+    <p style="margin:4px 0 22px">
+      <a class="btn-store" href="https://apps.apple.com/app/id6798913558" aria-label="Download ChoreUnlock on the App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+        <span class="bs-txt"><span class="bs-small">Download on the</span><span class="bs-big">App Store</span></span>
+      </a>
+    </p>
     <form class="waitlist" id="waitlist-form">
       <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address">
-      <button type="submit">Join the waitlist →</button>
+      <button type="submit">Lock in $5.99 →</button>
     </form>
-    <p class="wl-note" id="wl-note">One email when we launch, plus your founding price locked in. No spam. <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" style="vertical-align:-1.5px" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg> Coming soon to the App Store.</p>
+    <p class="wl-note" id="wl-note">Join the founding list and your <b>$5.99/mo price is locked for life</b> — we'll email your upgrade instructions. Launch window only. No spam.</p>
     <div class="founding-note" style="margin:26px auto 0">
-      <span class="fn-badge">⚡ Founding offer — before launch</span>
+      <span class="fn-badge">⚡ Founding offer — launch window only</span>
       <h3>ChoreUnlock Premium<br><span class="fn-price">$5.99/mo</span> for founding families</h3>
-      <p><b>The app is free to download</b> — and free for one child, forever. <b>Everyone</b> gets a <b>7-day risk-free trial</b> of Premium — try every feature, cancel anytime. Founding families on the waitlist are <b>grandfathered at $5.99/mo for life</b> (after launch, everyone else pays $8.99). Your price stays locked as long as you stay subscribed.</p>
+      <p><b>The app is free to download</b> — and free for one child, forever. <b>Everyone</b> gets a <b>7-day risk-free trial</b> of Premium — try every feature, cancel anytime. Founding families who join the list during the launch window are <b>grandfathered at $5.99/mo for life</b> (the regular price is $8.99). Your price stays locked as long as you stay subscribed.</p>
     </div>
     <script>
     (function(){
@@ -416,11 +432,11 @@
           headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
           body:JSON.stringify({email:email,invite_code:code,source:'site'})
         }).then(function(res){
-          if(res.ok){done('🎉 You\'re in! Your founding price of $5.99/mo is locked. We\'ll email you the moment we launch.');}
+          if(res.ok){done('🎉 You\'re in! Your founding price of $5.99/mo is locked. Download the app and we\'ll email your upgrade instructions.');}
           else if(res.status===409){done('✅ You\'re already on the list — your founding price is locked in.');}
           else{throw new Error('bad status '+res.status);}
         }).catch(function(){
-          btn.disabled=false;btn.textContent='Join the waitlist →';
+          btn.disabled=false;btn.textContent='Lock in $5.99 →';
           window.location.href='mailto:vasili@syzygy-enterprises.com?subject=ChoreUnlock%20founding%20waitlist&body='
             +encodeURIComponent('Please add me to the founding waitlist: '+email+(code?' (invite code: '+code+')':''));
         });
@@ -450,8 +466,8 @@
       <div class="tier founding">
         <div class="tname">⚡ Founding</div>
         <div class="tprice">$5.99<span>/mo</span></div>
-        <div class="tdesc">Same Premium — lock this rate <b>for life</b> (reg. $8.99). Before launch only.</div>
-        <span class="tbadge">Waitlist upgrade</span>
+        <div class="tdesc">Same Premium — lock this rate <b>for life</b> (reg. $8.99). Launch window only.</div>
+        <span class="tbadge">Founding list upgrade</span>
       </div>
     </div>
   </div>
@@ -506,7 +522,7 @@
     <p class="ask">We made it the <b>reward</b>.</p>
     <p>Chores get done. Screens get earned. And day by day, your kids build the habits — and the character — that outlast any app.</p>
     <div class="manifesto-close">
-      <div class="mc-soon">Coming soon</div>
+      <div class="mc-soon">Now on the App Store</div>
       <div class="mc-brand">Chore<span>Unlock</span></div>
       <div class="mc-tag">Responsible today. Unstoppable tomorrow.</div>
     </div>
@@ -620,7 +636,7 @@
   <div class="wrap">
     <div class="starburst"><span>CHORES?!</span></div>
     <div class="speech">“Mom… I finished EVERYTHING. Can my apps unlock now?”<small>— an actual sentence your kid will say</small></div>
-    <a class="comic-cta" href="#get">GET CHOREUNLOCK → KA-POW</a>
+    <a class="comic-cta" href="https://apps.apple.com/app/id6798913558">GET CHOREUNLOCK → KA-POW</a>
   </div>
 </section>
 
