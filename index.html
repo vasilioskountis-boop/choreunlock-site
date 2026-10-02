@@ -164,20 +164,17 @@
   .plan .xp-hl{display:inline-block;background:#FEF3C7;color:#B45309;padding:2px 9px;border-radius:7px;font-weight:900;font-size:12.5px}
   @media(max-width:720px){.price{grid-template-columns:1fr}}
 
-  /* VALUE LADDER (free/premium/founding at a glance, right under the hero) */
+  /* VALUE LADDER (free/premium at a glance, right under the hero) */
   .ladder-wrap{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0}
   .ladder-head{text-align:center;font-weight:900;font-size:20px;color:var(--ink);letter-spacing:-.3px;margin-bottom:4px}
   .ladder-sub{text-align:center;color:var(--muted);font-size:14.5px;margin-bottom:22px}
-  .ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:900px;margin:0 auto}
+  .ladder{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:620px;margin:0 auto}
   .tier{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 20px;text-align:center}
-  .tier.founding{border:2px solid var(--amber);box-shadow:0 12px 30px rgba(245,158,11,.18)}
   .tier .tname{font-weight:900;font-size:13px;letter-spacing:.6px;text-transform:uppercase;color:var(--indigo)}
-  .tier.founding .tname{color:#B45309}
   .tier .tprice{font-size:30px;font-weight:900;letter-spacing:-1px;margin:4px 0 4px}
   .tier .tprice span{font-size:14px;color:var(--muted);font-weight:700}
   .tier .tdesc{color:#374151;font-size:13.5px;font-weight:600;line-height:1.45}
   .tier .tfree{display:inline-block;margin-top:10px;background:#DCFCE7;color:#166534;font-weight:900;font-size:11.5px;padding:4px 11px;border-radius:999px}
-  .tier .tbadge{display:inline-block;margin-top:10px;background:var(--amber-soft);color:#92400E;font-weight:900;font-size:11.5px;padding:4px 11px;border-radius:999px}
   @media(max-width:720px){.ladder{grid-template-columns:1fr;max-width:340px}}
 
   /* FOOTER */
@@ -273,20 +270,10 @@
   @keyframes cuePulse{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.07)}}
   .soundcue.hidden{display:none}
   @media(max-width:760px){.videowrap{max-width:260px}}
-  /* founding-family urgency */
+  /* live announcement bar */
   .founding-bar{display:block;text-align:center;background:linear-gradient(90deg,#4338CA,#6D28D9);color:#fff;font-size:14px;font-weight:700;padding:10px 16px;text-decoration:none;letter-spacing:.2px}
   .founding-bar b{color:#FFD24D}
   .founding-bar .fb-cta{text-decoration:underline;white-space:nowrap}
-  .founding-note{max-width:780px;margin:0 auto 30px;text-align:center;background:linear-gradient(135deg,#FFF3C4,#FFD84D);border:3px solid #F59E0B;border-radius:24px;padding:30px 28px;box-shadow:0 18px 44px rgba(245,158,11,.35)}
-  .founding-note .fn-badge{display:inline-block;background:#7C2D12;color:#FFD84D;font-size:12.5px;font-weight:900;letter-spacing:.6px;text-transform:uppercase;padding:7px 14px;border-radius:999px}
-  .founding-note h3{margin:14px 0 8px;font-size:27px;color:#7C2D12;font-weight:900;line-height:1.2}
-  .founding-note .fn-price{color:#B45309}
-  .founding-note p{margin:0 auto 18px;max-width:600px;color:#7C2D12;font-size:16px;line-height:1.6;font-weight:600}
-  .waitlist{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px auto 0;max-width:470px}
-  .waitlist input{flex:1 1 240px;min-width:200px;padding:15px 16px;border-radius:14px;border:2px solid #C7D2FE;font-size:16px;background:#fff;color:#111827}
-  .waitlist input[name=code]{flex:1 1 150px;min-width:140px;text-transform:uppercase}
-  .waitlist button{padding:15px 24px;border:none;border-radius:14px;background:#FFD24D;color:#3730A3;font-size:16px;font-weight:800;cursor:pointer}
-  .wl-note{margin-top:14px;font-size:13px;color:#C7D2FE}
   /* manifesto / mission — dark premium "moment" */
   .manifesto{position:relative;overflow:hidden;background:radial-gradient(125% 100% at 50% -8%,#28205F 0%,#160F3E 46%,#0A0722 100%);padding:104px 0;color:#fff;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
   .manifesto .m-glow{position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:min(640px,88%);height:440px;background:radial-gradient(closest-side,rgba(124,92,255,.38),transparent 70%);filter:blur(12px);pointer-events:none}
@@ -341,7 +328,7 @@
 </head>
 <body>
 
-<a class="founding-bar" href="https://apps.apple.com/app/id6798913558">🎉 <b>We're LIVE on the App Store!</b> Founding families lock in <b>Premium — $5.99/mo for life</b> (reg. $8.99) — launch window only. <span class="fb-cta">Download free →</span></a>
+<a class="founding-bar" href="https://apps.apple.com/app/id6798913558">🎉 <b>We're LIVE on the App Store!</b> Free to download — and free for one child, forever. <span class="fb-cta">Download free →</span></a>
 
 <nav>
   <div class="wrap nav-in">
@@ -372,7 +359,7 @@
         </a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
-      <p class="cta-sub">ChoreUnlock is <b>live on the App Store</b> — free to download, and free for one child, forever. Founding families lock in optional <b>Premium at $5.99/mo for life</b> (reg. $8.99) during the launch window.</p>
+      <p class="cta-sub">ChoreUnlock is <b>live on the App Store</b> — free to download, and free for one child, forever. Premium is optional: <b>$8.99/mo</b> or <b>$89.99/yr</b> after a 7-day free trial.</p>
       <p class="cta-note">✓ Free to download &nbsp;·&nbsp; ✓ One child free, forever &nbsp;·&nbsp; ✓ Premium optional — 7-day trial</p>
     </div>
     <div>
@@ -394,55 +381,14 @@
   <span class="spark" style="top:19%;right:33%;font-size:12px">&#10038;</span>
   <div class="wrap beacon-content">
     <div class="beacon-word">Chore<span>Unlock</span></div>
-    <h2 class="beacon-head">We're live. Start free.<br><span class="bh2">Lock in Founder's Premium.</span></h2>
-    <p class="beacon-sub">ChoreUnlock is <b>on the App Store now</b> — free to download and free for one child.</p>
-    <p style="margin:4px 0 22px">
+    <h2 class="beacon-head">We're live.<br><span class="bh2">Start free today.</span></h2>
+    <p class="beacon-sub">ChoreUnlock is <b>on the App Store now</b> — free to download and free for one child, forever. Premium is optional, with a 7-day free trial.</p>
+    <p style="margin:26px 0 0">
       <a class="btn-store" href="https://apps.apple.com/app/id6798913558" aria-label="Download ChoreUnlock on the App Store">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
         <span class="bs-txt"><span class="bs-small">Download on the</span><span class="bs-big">App Store</span></span>
       </a>
     </p>
-    <form class="waitlist" id="waitlist-form">
-      <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address">
-      <button type="submit">Lock in $5.99 →</button>
-    </form>
-    <p class="wl-note" id="wl-note">Join the founding list and your <b>$5.99/mo price is locked for life</b> — we'll email your upgrade instructions. Launch window only. No spam.</p>
-    <div class="founding-note" style="margin:26px auto 0">
-      <span class="fn-badge">⚡ Founding offer — launch window only</span>
-      <h3>ChoreUnlock Premium<br><span class="fn-price">$5.99/mo</span> for founding families</h3>
-      <p><b>The app is free to download</b> — and free for one child, forever. <b>Everyone</b> gets a <b>7-day risk-free trial</b> of Premium — try every feature, cancel anytime. Founding families who join the list during the launch window are <b>grandfathered at $5.99/mo for life</b> (the regular price is $8.99). Your price stays locked as long as you stay subscribed.</p>
-    </div>
-    <script>
-    (function(){
-      var SB_URL='https://fpljjcxrevptehdwvypb.supabase.co/rest/v1/waitlist';
-      var SB_KEY='sb_publishable_zd7_g7OdU-exddsMEob1HQ_m0Osm4ho';
-      var form=document.getElementById('waitlist-form');
-      var note=document.getElementById('wl-note');
-      var params=new URLSearchParams(window.location.search);
-      var urlCode=params.get('code')||params.get('invite');
-      function done(msg){form.style.display='none';note.innerHTML=msg;note.style.fontWeight='700';}
-      form.addEventListener('submit',function(ev){
-        ev.preventDefault();
-        var email=form.email.value.trim().toLowerCase();
-        var code=urlCode?urlCode.trim().toUpperCase():null;
-        var btn=form.querySelector('button');
-        btn.disabled=true;btn.textContent='Joining…';
-        fetch(SB_URL,{
-          method:'POST',
-          headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
-          body:JSON.stringify({email:email,invite_code:code,source:'site'})
-        }).then(function(res){
-          if(res.ok){done('🎉 You\'re in! Your founding price of $5.99/mo is locked. Download the app and we\'ll email your upgrade instructions.');}
-          else if(res.status===409){done('✅ You\'re already on the list — your founding price is locked in.');}
-          else{throw new Error('bad status '+res.status);}
-        }).catch(function(){
-          btn.disabled=false;btn.textContent='Lock in $5.99 →';
-          window.location.href='mailto:vasili@syzygy-enterprises.com?subject=ChoreUnlock%20founding%20waitlist&body='
-            +encodeURIComponent('Please add me to the founding waitlist: '+email+(code?' (invite code: '+code+')':''));
-        });
-      });
-    })();
-    </script>
   </div>
 </section>
 
@@ -462,12 +408,6 @@
         <div class="tprice">$8.99<span>/mo</span></div>
         <div class="tdesc">Your whole family — auto-lock, XP screen-time meter, AI checks &amp; everything.</div>
         <span class="tfree">7-day free trial</span>
-      </div>
-      <div class="tier founding">
-        <div class="tname">⚡ Founding</div>
-        <div class="tprice">$5.99<span>/mo</span></div>
-        <div class="tdesc">Same Premium — lock this rate <b>for life</b> (reg. $8.99). Launch window only.</div>
-        <span class="tbadge">Founding list upgrade</span>
       </div>
     </div>
   </div>
