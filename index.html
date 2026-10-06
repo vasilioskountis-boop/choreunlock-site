@@ -351,7 +351,13 @@
         <span class="ransom"><span class="cut c-indigo">NO</span><span class="cut c-amber">CHORES.</span></span>
         <span class="ransom"><span class="cut c-red">NO</span><span class="cut c-white">SCREEN</span><span class="cut c-indigo">TIME.</span></span>
       </h1>
-      <p class="sub">Nothing good should come free — not even screen time. ChoreUnlock turns it into a wage: <b>chores in, minutes out.</b> The tablet locks and unlocks itself automatically, so there's no nagging, no fiddling with Settings, and no arguments to lose.</p>
+      <p class="sub">
+        <svg viewBox="0 0 600 26" style="width:100%;height:auto;display:block;margin-bottom:6px" aria-hidden="true">
+          <text x="0" y="20" textLength="600" lengthAdjust="spacingAndGlyphs" style="font-weight:900;fill:#3730A3;font-size:22px;font-family:inherit">Imagine being proud at 7pm instead of exhausted.</text>
+        </svg>
+        <span class="sr-only" style="position:absolute;left:-9999px">Imagine being proud at 7pm instead of exhausted.</span>
+        <span style="font-weight:700;color:#3730A3">Tonight it’s possible. Tomorrow it’s normal.</span>
+      </p>
       <div class="cta-row">
         <a class="btn-store" href="https://apps.apple.com/app/id6798913558" aria-label="Download ChoreUnlock on the App Store">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
@@ -359,8 +365,7 @@
         </a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
-      <p class="cta-sub">ChoreUnlock is <b>live on the App Store</b> — free to download, and free for one child, forever. Premium is optional: <b>$8.99/mo</b> or <b>$89.99/yr</b> after a 7-day free trial.</p>
-      <p class="cta-note">✓ Free to download &nbsp;·&nbsp; ✓ One child free, forever &nbsp;·&nbsp; ✓ Premium optional — 7-day trial</p>
+      <p class="cta-note" style="line-height:2">✓ Free to download<br>✓ One child free, forever<br>✓ Premium: 7-day free trial — cancel in seconds</p>
     </div>
     <div>
       <div class="hero-phones">
@@ -372,46 +377,235 @@
   </div>
 </header>
 
-<section id="get" class="beacon">
-  <div class="source"></div>
-  <div class="beam"></div>
-  <span class="spark" style="top:13%;left:15%;font-size:22px">&#10038;</span>
-  <span class="spark" style="top:24%;right:17%;font-size:16px">&#10038;</span>
-  <span class="spark" style="top:46%;left:23%;font-size:13px">&#10038;</span>
-  <span class="spark" style="top:19%;right:33%;font-size:12px">&#10038;</span>
-  <div class="wrap beacon-content">
-    <div class="beacon-word">Chore<span>Unlock</span></div>
-    <h2 class="beacon-head">We're live.<br><span class="bh2">Start free today.</span></h2>
-    <p class="beacon-sub">ChoreUnlock is <b>on the App Store now</b> — free to download and free for one child, forever. Premium is optional, with a 7-day free trial.</p>
-    <p style="margin:26px 0 0">
-      <a class="btn-store" href="https://apps.apple.com/app/id6798913558" aria-label="Download ChoreUnlock on the App Store">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
-        <span class="bs-txt"><span class="bs-small">Download on the</span><span class="bs-big">App Store</span></span>
-      </a>
+<section id="how" style="background:var(--bg-soft)">
+  <style>
+    .steps.five{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px}
+    .orb-wrap{display:flex;align-items:center;justify-content:center}
+    .orb-img{width:min(260px,60vw);height:auto;animation:orbBreathe 2.6s ease-in-out infinite}
+    @keyframes orbBreathe{0%,100%{transform:scale(1);opacity:.92}50%{transform:scale(1.05);opacity:1}}
+    .say{background:#EEF2FF;border-radius:999px;padding:9px 16px;display:inline-block;color:#3730A3;font-weight:700;font-size:14.5px;margin:4px 4px 0 0}
+  </style>
+  <div class="wrap">
+    <style>
+      .deal{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:8px}
+      .dcard{background:#fff;border-radius:18px;padding:20px 16px 18px;border:1.5px solid #ECECF1;border-top:5px solid var(--dc);box-shadow:0 6px 18px rgba(17,24,39,.06);transition:transform .18s ease,box-shadow .18s ease}
+      .dcard:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(17,24,39,.12)}
+      .dic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:25px;background:var(--dcbg);margin-bottom:12px}
+      .dcard h4{margin:0 0 7px;font-size:16.5px;letter-spacing:-.2px;color:#111827}
+      .dcard p{margin:0;font-size:14px;line-height:1.55;color:#5B6472}
+      .dcard.mak{background:linear-gradient(180deg,#FFFBEB 0%,#fff 55%);box-shadow:0 10px 26px rgba(245,158,11,.22)}
+      .deal-close{max-width:620px;margin:30px auto 0;background:#3730A3;color:#fff;border-radius:16px;padding:18px 22px;text-align:center}
+      .deal-close b{display:block;font-size:17.5px;letter-spacing:-.2px}
+      .deal-close span{color:#C7D2FE;font-size:14.5px}
+      .fullpic summary{list-style:none;-webkit-appearance:none;cursor:pointer;display:inline-block;background:linear-gradient(135deg,#F59E0B,#FBBF24);color:#1F1300;font-weight:900;font-size:15.5px;letter-spacing:.2px;padding:14px 26px;border-radius:999px;box-shadow:0 8px 22px rgba(245,158,11,.45);transition:transform .15s ease,box-shadow .15s ease;animation:fpPulse 2.4s ease-in-out infinite}
+      .fullpic summary::-webkit-details-marker{display:none}
+      .fullpic summary:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 12px 30px rgba(245,158,11,.55)}
+      .fullpic[open] summary{animation:none;background:#3730A3;color:#fff;box-shadow:0 8px 22px rgba(55,48,163,.4)}
+      @keyframes fpPulse{0%,100%{box-shadow:0 8px 22px rgba(245,158,11,.45)}50%{box-shadow:0 8px 34px rgba(245,158,11,.75)}}
+    </style>
+    <p class="kicker">What it does</p>
+    <h2>Here’s the deal.</h2>
+    <div class="deal">
+      <div class="dcard mak" style="--dc:#F59E0B;--dcbg:#FEF3C7">
+        <div class="dic">🗣️</div>
+        <h4>Talk, and it’s set up</h4>
+        <p>Press the glowing light. Say the chores. Done.</p>
+      </div>
+      <div class="dcard" style="--dc:#3730A3;--dcbg:#EEF2FF">
+        <div class="dic">🔒</div>
+        <h4>No chores? No apps.</h4>
+        <p>The games stay locked until the work is done. The app does the locking — not you.</p>
+      </div>
+      <div class="dcard" style="--dc:#DC2626;--dcbg:#FEE2E2">
+        <div class="dic">📸</div>
+        <h4>No cheating</h4>
+        <p>Your kid takes a photo. The app checks it. A messy room doesn’t pass.</p>
+      </div>
+      <div class="dcard" style="--dc:#7C3AED;--dcbg:#F5F3FF">
+        <div class="dic">🎮</div>
+        <h4>They pay for their screen time</h4>
+        <p>Chores earn points. Points buy minutes. No points, no minutes.</p>
+      </div>
+      <div class="dcard" style="--dc:#16A34A;--dcbg:#DCFCE7">
+        <div class="dic">💵</div>
+        <h4>They earn real money</h4>
+        <p>Good work adds up all week. You pay them with one tap.</p>
+      </div>
+    </div>
+    <div class="deal-close">
+      <b>You set it up once. The app does the rest.</b>
+      <span>Your whole job now: saying “good job.”</span>
+    </div>
+
+    <details class="fullpic" style="max-width:1080px;margin:24px auto 0;text-align:center">
+      <summary>✨ Click here for the full picture →</summary>
+      <div class="steps five" style="margin-top:18px">
+        <div class="step">
+          <div class="n">1</div>
+          <h4>Hey Mak — your voice assistant</h4>
+          <p>Tap the orb and speak, like a call. Mak answers in a real voice, plans the missions — XP, schedules, photo checklists — and creates them the moment you say yes.</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h4>System-level enforcement</h4>
+          <p>Built on Apple’s own Family Controls. Apps shield themselves until chores are approved, re-lock each morning, and survive app-closing and restarts. You never touch Settings.</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h4>AI-verified proof</h4>
+          <p>A live camera photo — no gallery tricks — judged against the checklist you define. The AI coaches your child on exactly what to fix before trying again.</p>
+        </div>
+        <div class="step">
+          <div class="n">4</div>
+          <h4>A real screen-time economy</h4>
+          <p>Earned XP buys metered minutes with a countdown. You set a different price for every app group — social media can cost triple what reading apps do.</p>
+        </div>
+        <div class="step">
+          <div class="n">5</div>
+          <h4>Real Rewards allowance</h4>
+          <p>Each child’s week accrues on a receipt-style ledger. One tap opens the payment — Apple Cash, your way — and the money lesson compounds for life.</p>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <p class="kicker">Pricing</p>
+    <h2>Get your life back: $8.99 a month.<br>Produce responsible kids: Free.</h2>
+    <p class="lead">Try every Premium feature free for 7 days. Cancel from the App Store in ten seconds — no email, no maze.</p>
+    <div class="price">
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="amt">$0</div>
+        <ul>
+          <li><span class="c">✓</span> One child, full daily experience</li>
+          <li><span class="c">✓</span> Missions, XP, levels &amp; streaks</li>
+          <li><span class="c">✓</span> Manual lock &amp; unlock</li>
+          <li><span class="c">✓</span> Up to 3 rewards</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <span class="pill best">Best value</span>
+        <h3>Premium</h3>
+        <div class="amt">$8.99<span> / month</span></div>
+        <div style="font-size:15px;color:#166534;font-weight:800;margin:2px 0 2px">or $89.99 / year — 2 months free</div>
+        <span class="trial">🎉 7-day free trial</span>
+        <ul>
+          <li><span class="c">✓</span> Your whole family — unlimited children</li>
+          <li><span class="c">✓</span>
+            <span class="li-col">
+              <b>Automatic</b>
+              <span class="submode">Auto-Lock — on / off</span>
+              <span class="submode"><span class="xp-hl">or Metered by XP</span></span>
+            </span>
+          </li>
+          <li><span class="c">✓</span> Earn-screen-time XP meter &amp; countdown timer</li>
+          <li><span class="c">✓</span> ✨ Hey Mak — set up chores by talking</li>
+          <li><span class="c">✓</span> 💎 Expensive Apps — your price per app group</li>
+          <li><span class="c">✓</span> 💵 Real Rewards — chores become real allowance</li>
+          <li><span class="c">✓</span> AI photo checks with your own checklist</li>
+          <li><span class="c">✓</span> Mystery Chest, challenges, co-parent &amp; unlimited rewards</li>
+        </ul>
+        <a class="btn-store" style="margin-top:14px" href="https://apps.apple.com/app/id6798913558" aria-label="Start your free trial on the App Store">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+          <span class="bs-txt"><span class="bs-small">Start your 7-day trial</span><span class="bs-big">App Store</span></span>
+        </a>
+      </div>
+    </div>
+    <p style="max-width:660px;margin:22px auto 0;font-size:12.5px;color:#8794ab;line-height:1.6;text-align:center">
+      Subscriptions auto-renew at $8.99/month or $89.99/year unless cancelled at least 24 hours before the period ends. Payment is charged to your Apple ID; manage or cancel anytime in Settings&nbsp;→&nbsp;Subscriptions. A 7-day free trial converts to a paid subscription if not cancelled before it ends. See our <a href="https://choreunlock.com/terms.html" style="color:#8794ab;text-decoration:underline">Terms</a> and <a href="https://choreunlock.com/privacy.html" style="color:#8794ab;text-decoration:underline">Privacy Policy</a>.
     </p>
   </div>
 </section>
 
-<section class="ladder-wrap" aria-label="Plans at a glance">
+<section style="background:#fff">
+  <style>
+    .ba{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;margin-top:30px}
+    @media(max-width:760px){.ba{grid-template-columns:1fr}.ba-arrow{transform:rotate(90deg);margin:-6px auto}}
+    .ba-card{border-radius:20px;padding:26px 24px}
+    .ba-card h3{margin:0 0 4px;font-size:19px;letter-spacing:-.3px}
+    .ba-card .when{font-size:12.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;display:block}
+    .ba-card ul{list-style:none;margin:0;padding:0}
+    .ba-card li{display:flex;gap:10px;padding:8px 0;font-size:15px;line-height:1.5;align-items:flex-start}
+    .ba-card li .m{font-weight:900;flex:none}
+    .ba-before{background:#FFF5F5;border:1.5px solid #FECACA;color:#7F1D1D}
+    .ba-before .when{color:#DC2626}
+    .ba-before .m{color:#DC2626}
+    .ba-after{background:#F0FDF4;border:1.5px solid #BBF7D0;color:#14532D;box-shadow:0 14px 34px rgba(22,163,74,.14)}
+    .ba-after .when{color:#16A34A}
+    .ba-after .m{color:#16A34A}
+    .ba-arrow{align-self:center;font-size:34px;color:#F59E0B;font-weight:900}
+  </style>
   <div class="wrap">
-    <p class="ladder-head">Free to start. Upgrade only if you want to.</p>
-    <p class="ladder-sub">The app is free to download and free for one child — forever. Premium is optional.</p>
-    <div class="ladder">
-      <div class="tier">
-        <div class="tname">Free</div>
-        <div class="tprice">$0</div>
-        <div class="tdesc">One child, full daily experience — missions, XP, levels &amp; streaks.</div>
-        <span class="tfree">Free forever</span>
+    <p class="kicker" style="text-align:center">Why parents stay</p>
+    <h2 style="text-align:center">You stop being the screen-time police. Tonight.</h2>
+    <div class="ba">
+      <div class="ba-card ba-before">
+        <span class="when">Tonight, without it</span>
+        <h3>The evening you know 😤</h3>
+        <ul>
+          <li><span class="m">✗</span><span>“Have you done your chores?” — asked four times, answered zero.</span></li>
+          <li><span class="m">✗</span><span>The 8pm negotiation over fifteen more minutes.</span></li>
+          <li><span class="m">✗</span><span>You take the iPad. Now you’re the villain. Again.</span></li>
+          <li><span class="m">✗</span><span>Everyone goes to bed annoyed — and tomorrow it repeats.</span></li>
+        </ul>
       </div>
-      <div class="tier">
-        <div class="tname">Premium</div>
-        <div class="tprice">$8.99<span>/mo</span></div>
-        <div class="tdesc">Your whole family — auto-lock, XP screen-time meter, AI checks &amp; everything.</div>
-        <span class="tfree">7-day free trial</span>
+      <div class="ba-arrow">→</div>
+      <div class="ba-card ba-after">
+        <span class="when">Tomorrow, with ChoreUnlock</span>
+        <h3>The evening you want 😌</h3>
+        <ul>
+          <li><span class="m">✓</span><span>The apps locked themselves at breakfast. Nobody argued with an app.</span></li>
+          <li><span class="m">✓</span><span>Work done by dinner — photo taken, checked, approved.</span></li>
+          <li><span class="m">✓</span><span>Your kid finds <b>you</b>, beaming: “check my missions!”</span></li>
+          <li><span class="m">✓</span><span>Your only line all evening: “great job.”</span></li>
+        </ul>
       </div>
+    </div>
+    <p class="lead" style="text-align:center;margin-top:26px"><b>The nagging ends. The peace is yours. The habits are theirs.</b></p>
+  </div>
+</section>
+
+<!-- HEY MAK — ships with v1.2; if deploying before 1.2 is live on the App
+     Store, wrap this section in an HTML comment and flip it on at 1.2. -->
+<section style="background:radial-gradient(ellipse at 50% 30%,#2A2566 0%,#17153A 60%,#0E0C26 100%);padding:70px 0">
+  <style>
+    .orbstage{text-align:center;color:#fff}
+    .orbstage .pill{background:#F59E0B;color:#1F1300}
+    .orbstage h2{color:#fff}
+    .orb-hero{width:min(320px,72vw);height:auto;animation:orbBreathe 2.6s ease-in-out infinite;filter:drop-shadow(0 0 70px rgba(245,158,11,.4))}
+    .orb-cap{color:#FDE68A;font-weight:800;font-size:16px;margin-top:4px}
+    .saydark{display:inline-block;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:9px 16px;color:#E0E7FF;font-weight:700;font-size:14px;margin:5px 4px}
+    .makgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;max-width:1020px;margin:34px auto 0;text-align:left}
+    .makgrid .mg{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px}
+    .makgrid b{color:#FDE68A;display:block;margin-bottom:5px;font-size:15px}
+    .makgrid p{margin:0;color:#C7CBF4;font-size:13.5px;line-height:1.55}
+  </style>
+  <div class="wrap orbstage">
+    <span class="pill">New · Hey Mak</span>
+    <h2 style="margin-top:14px">Don’t build chore charts.<br>Just say it.</h2>
+    <p style="color:#C7CBF4;max-width:560px;margin:10px auto 26px;font-size:16px;line-height:1.6">Tap the glowing light and talk, like a call: <b style="color:#fff">“Niki reads twenty minutes on school nights.”</b> Mak answers out loud, builds the mission, and creates it the moment you say yes.</p>
+    <img class="orb-hero" src="mak-orb.png" alt="Mak — ChoreUnlock's voice assistant">
+    <div class="orb-cap">Tap the light. Say what needs doing. Done.</div>
+    <div style="margin-top:18px">
+      <span class="saydark">“a morning routine for both girls”</span>
+      <span class="saydark">“who’s behind this week?”</span>
+      <span class="saydark">“make Sunday chores worth double”</span>
+    </div>
+    <div class="makgrid">
+      <div class="mg"><b>A real conversation</b><p>He answers in a real voice, listens again, and revises when you push back — “make it twenty XP” just works.</p></div>
+      <div class="mg"><b>He writes the checklists</b><p>Mak decides what a passing photo must show (“water bottles full, no droppings”) — you just veto.</p></div>
+      <div class="mg"><b>Nothing without you</b><p>Missions are created only when you confirm — by voice or by tap.</p></div>
+      <div class="mg"><b>Thirty seconds flat</b><p>A week of routines, spoken while you make dinner. The fastest setup in any parenting app.</p></div>
     </div>
   </div>
 </section>
+
+
+
+
 
 <section class="stat">
   <span class="warn top"></span>
@@ -524,59 +718,169 @@
   <div class="shots-dots" id="shotsDots" aria-hidden="true"></div>
 </section>
 
-<section id="how" style="background:var(--bg-soft)">
+<section id="magic" style="background:var(--bg-soft)">
+  <style>
+    .cycle{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch;max-width:980px;margin:34px auto 0}
+    @media(max-width:760px){.cycle{grid-template-columns:1fr}.cyc-arrow{transform:rotate(90deg);margin:-4px auto}}
+    .cyc{background:#fff;border:1.5px solid #ECECF1;border-radius:20px;padding:26px 20px;text-align:center;box-shadow:0 6px 18px rgba(17,24,39,.05);animation:cycGlow 7.5s ease-in-out infinite}
+    .cyc .cbig{font-size:44px;display:block;margin-bottom:10px}
+    .cyc b{display:block;font-size:16.5px;color:#111827;margin-bottom:5px;letter-spacing:-.2px}
+    .cyc p{margin:0;font-size:13.5px;color:#5B6472;line-height:1.55}
+    .cyc:nth-of-type(1){animation-delay:0s}
+    .cyc:nth-of-type(2){animation-delay:2.5s}
+    .cyc:nth-of-type(3){animation-delay:5s}
+    @keyframes cycGlow{0%,28%,100%{box-shadow:0 6px 18px rgba(17,24,39,.05);transform:translateY(0)}8%,20%{box-shadow:0 16px 36px rgba(245,158,11,.35);transform:translateY(-6px)}}
+    .cyc-arrow{align-self:center;font-size:28px;color:#F59E0B;font-weight:900}
+    .magic-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+    .mchip{background:#fff;border:1.5px solid #E5E7EB;border-radius:999px;padding:10px 16px;font-size:13.5px;font-weight:700;color:#374151}
+  </style>
   <div class="wrap">
-    <p class="kicker">How it works</p>
-    <h2>Three steps. Then it runs itself.</h2>
-    <p class="lead">Set it up once. After that, ChoreUnlock handles the locking and unlocking so you don't have to.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="n">1</div>
-        <h4>Assign the chores</h4>
-        <p>From your phone, give each child their missions and how much XP they're worth. Pick the apps to lock until chores are done.</p>
+    <p class="kicker" style="text-align:center">The magic</p>
+    <h2 style="text-align:center">It locks. It unlocks. By itself.</h2>
+    <p class="lead" style="text-align:center">Built on Apple’s own Family Controls, at the system level — you never touch Settings.</p>
+    <div class="cycle">
+      <div class="cyc">
+        <span class="cbig">🔒</span>
+        <b>Morning: locked</b>
+        <p>The day starts with the fun apps shielded — automatically, every single day.</p>
       </div>
-      <div class="step">
-        <div class="n">2</div>
-        <h4>Kids do them</h4>
-        <p>Your child checks off missions and snaps a proof photo. Locked apps stay shielded until the work is really done.</p>
+      <div class="cyc-arrow">→</div>
+      <div class="cyc">
+        <span class="cbig">🧹📸</span>
+        <b>Chores + proof</b>
+        <p>Missions get done, the photo gets checked, the work gets approved.</p>
       </div>
-      <div class="step">
-        <div class="n">3</div>
-        <h4>Approve → it unlocks</h4>
-        <p>Approve from your phone (or let the AI do it). The moment chores are done, the tablet unlocks — automatically.</p>
+      <div class="cyc-arrow">→</div>
+      <div class="cyc">
+        <span class="cbig">🔓</span>
+        <b>Unlocked — by itself</b>
+        <p>The instant work is approved, the tablet frees up. Or meter it: earned XP buys minutes on a countdown.</p>
       </div>
+    </div>
+    <div class="magic-chips">
+      <span class="mchip">⚙️ Apple system-level lock</span>
+      <span class="mchip">🌙 Re-locks itself every morning</span>
+      <span class="mchip">🛡️ Survives app-closing &amp; restarts</span>
+      <span class="mchip">👨‍👩‍👧 No Family Sharing setup</span>
+      <span class="mchip">✅ ChoreUnlock itself never locks</span>
     </div>
   </div>
 </section>
 
-<section>
+<section style="background:#fff">
+  <style>
+    .rr{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+    @media(max-width:820px){.rr{grid-template-columns:1fr}}
+    .rr-list{list-style:none;margin:18px 0 0;padding:0}
+    .rr-list li{display:flex;gap:10px;padding:8px 0;font-size:15px;line-height:1.55;color:#374151}
+    .rr-list .m{color:#16A34A;font-weight:900;flex:none}
+    .receipt{font-family:'Courier New',ui-monospace,monospace;background:#FFFEF7;color:#1F2937;max-width:340px;margin:0 auto;padding:24px 22px 28px;box-shadow:0 20px 48px rgba(17,24,39,.2);transform:rotate(-2deg);position:relative;font-size:13px;line-height:1.75;border-top:2px dashed #D1D5DB;border-bottom:2px dashed #D1D5DB}
+    .receipt .rh{text-align:center;font-weight:700;letter-spacing:1.5px}
+    .receipt .rsub{text-align:center;color:#6B7280;font-size:11.5px;margin-bottom:8px}
+    .receipt hr{border:0;border-top:1.5px dashed #9CA3AF;margin:8px 0}
+    .receipt .row{display:flex;align-items:baseline}
+    .receipt .dots{flex:1;border-bottom:2px dotted #9CA3AF;margin:0 6px;transform:translateY(-3px)}
+    .receipt .tot{font-weight:900;font-size:15px}
+    .receipt .thanks{text-align:center;letter-spacing:2px;color:#6B7280;font-size:11.5px;margin-top:10px}
+    .stamp{position:absolute;right:16px;bottom:64px;border:3px solid #16A34A;color:#16A34A;font-weight:900;padding:5px 14px;border-radius:10px;transform:rotate(-14deg);font-size:19px;letter-spacing:2.5px;background:rgba(240,253,244,.8);font-family:inherit}
+  </style>
   <div class="wrap">
-    <div class="flag">
+    <div class="rr">
       <div>
-        <span class="pill">The magic</span>
-        <h2>The device locks and unlocks itself</h2>
-        <p>Works at the system level — but you never touch Settings. ChoreUnlock shields the apps you choose and clears them the instant chores are approved.</p>
-        <ul>
-          <li><span class="tick">✓</span><span><b>Automatic.</b> No manual toggling — chores done, apps unlock.</span></li>
-          <li><span class="tick">✓</span><span><b>Or meter it.</b> Flip on the XP meter — kids spend earned XP to buy screen-time minutes and a timer counts down, so screen time is chosen, not endless.</span></li>
-          <li><span class="tick">✓</span><span><b>Tamper-resistant.</b> Closing the app doesn't unlock it; it re-locks every morning on its own.</span></li>
-          <li><span class="tick">✓</span><span><b>Simple setup.</b> No Family Sharing or child accounts required.</span></li>
-          <li><span class="tick">✓</span><span><b>ChoreUnlock stays open</b> so kids can always do their chores.</span></li>
+        <span class="pill" style="background:#DCFCE7;color:#166534">New · Real Rewards</span>
+        <h2>Chores become real allowance</h2>
+        <p>Earned XP becomes real money. Each child’s week prints onto a ledger they can read — and you pay it with one tap, your way.</p>
+        <ul class="rr-list">
+          <li><span class="m">✓</span><span><b>A real paycheck.</b> Work in, money earned — they watch it add up all week.</span></li>
+          <li><span class="m">✓</span><span><b>Pay your way.</b> One tap opens the payment in Messages (like Apple Cash) with the amount ready.</span></li>
+          <li><span class="m">✓</span><span><b>Your money never touches us.</b> ChoreUnlock keeps the books; the payment stays between you and your child.</span></li>
+          <li><span class="m">✓</span><span><b>Money lessons early.</b> Earning, saving, payday — habits that outlast any chore chart.</span></li>
         </ul>
       </div>
-      <div class="flag-visual">
-        <div class="big">🔒 → 🔓</div>
-        <div class="cap">Chores approved → the whole tablet frees up, hands-free.</div>
+      <div>
+        <div class="receipt">
+          <div class="rh">CHOREUNLOCK</div>
+          <div class="rh" style="font-size:11.5px">★ REAL REWARDS ★</div>
+          <div class="rsub">WEEK OF OCT 5 · NIKI</div>
+          <hr>
+          <div class="row"><span>Make the bed ×7</span><span class="dots"></span><span>$1.75</span></div>
+          <div class="row"><span>Guinea pig cage ×2</span><span class="dots"></span><span>$1.50</span></div>
+          <div class="row"><span>Kitchen sink ×5</span><span class="dots"></span><span>$1.25</span></div>
+          <div class="row"><span>Evening prayer ×7</span><span class="dots"></span><span>$1.40</span></div>
+          <div class="row"><span>Read 20 min ×4</span><span class="dots"></span><span>$1.60</span></div>
+          <hr>
+          <div class="row tot"><span>TOTAL EARNED</span><span class="dots"></span><span>$7.50</span></div>
+          <div class="row" style="font-size:12px;color:#6B7280"><span>PAID VIA</span><span class="dots"></span><span>APPLE CASH</span></div>
+          <div class="thanks">*&nbsp;*&nbsp;*&nbsp; GREAT WEEK, NIKI &nbsp;*&nbsp;*&nbsp;*</div>
+          <div class="stamp">PAID ✓</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="pop">
-  <div class="wrap">
-    <div class="starburst"><span>CHORES?!</span></div>
-    <div class="speech">“Mom… I finished EVERYTHING. Can my apps unlock now?”<small>— an actual sentence your kid will say</small></div>
-    <a class="comic-cta" href="https://apps.apple.com/app/id6798913558">GET CHOREUNLOCK → KA-POW</a>
+<section style="background:var(--bg-soft)">
+  <style>
+    .tagrow{display:flex;gap:30px;justify-content:center;align-items:center;flex-wrap:wrap;margin:36px 0 10px}
+    .ptag{position:relative;background:#fff;border-radius:18px;padding:26px 30px 22px;min-width:225px;text-align:center;box-shadow:0 14px 34px rgba(17,24,39,.13);transform:rotate(-3deg)}
+    .ptag::before{content:'';position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:17px;height:17px;border-radius:50%;background:var(--bg-soft);border:3.5px solid #CBD5E1}
+    .ptag .cat{font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+    .ptag .apps{font-size:32px;margin:8px 0 4px}
+    .ptag .xp{font-size:34px;font-weight:900;letter-spacing:-.5px;color:#111827}
+    .ptag .per{font-size:12.5px;color:#6B7280;font-weight:700}
+    .ptag.cheap{border:2.5px solid #16A34A}
+    .ptag.cheap .cat{color:#16A34A}
+    .ptag.exp{transform:rotate(3deg);border:2.5px solid #F59E0B;background:linear-gradient(180deg,#FFFBEB,#fff);box-shadow:0 18px 40px rgba(245,158,11,.3)}
+    .ptag.exp .cat{color:#B45309}
+    .nofree{position:absolute;top:-13px;right:-16px;background:#DC2626;color:#fff;font-size:10.5px;font-weight:900;letter-spacing:1px;padding:6px 10px;border-radius:999px;transform:rotate(8deg);box-shadow:0 6px 14px rgba(220,38,38,.4)}
+    .vs{font-weight:900;font-size:24px;color:#9CA3AF}
+    .tag-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+  </style>
+  <div class="wrap" style="text-align:center">
+    <span class="pill" style="background:#F5F3FF;color:#6D28D9">New · Expensive Apps</span>
+    <h2 style="margin-top:12px">Duolingo is free. Minecraft is cheap.<br>TikTok costs triple.</h2>
+    <p class="lead">Not all screen time is equal — so now it isn’t priced equally.</p>
+    <div class="tagrow">
+      <div class="ptag" style="border:2.5px solid #3730A3;transform:rotate(-3deg)">
+        <div class="cat" style="color:#3730A3">Free apps</div>
+        <div class="apps">🦉 📖 🎹</div>
+        <div class="xp">0 XP</div>
+        <div class="per">never locked — your pick</div>
+      </div>
+      <div class="ptag cheap" style="transform:rotate(2deg)">
+        <div class="cat">Everyday apps</div>
+        <div class="apps">🎮 📺 🧩</div>
+        <div class="xp">20 XP</div>
+        <div class="per">per 30 minutes</div>
+      </div>
+      <div class="ptag exp" style="transform:rotate(-2deg)">
+        <div class="nofree">NO FREE MINUTES</div>
+        <div class="cat">Expensive apps</div>
+        <div class="apps" style="display:flex;align-items:center;justify-content:center;gap:12px;height:40px">
+          <svg width="34" height="24" viewBox="0 0 28 20" aria-label="YouTube"><rect width="28" height="20" rx="5" fill="#FF0000"/><polygon points="11,5.5 19.5,10 11,14.5" fill="#fff"/></svg>
+          <span aria-label="TikTok" style="font-size:27px;font-weight:900;color:#000;text-shadow:-2px -2px 0 #25F4EE,2px 2px 0 #FE2C55;line-height:1">♪</span>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E4405F" stroke-width="2.2" aria-label="Instagram"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1.3" fill="#E4405F" stroke="none"/></svg>
+        </div>
+        <div class="xp">60 XP</div>
+        <div class="per">per 30 minutes</div>
+      </div>
+    </div>
+    <div class="tag-chips">
+      <span class="mchip">💰 Three tiers, your rules</span>
+      <span class="mchip">🚫 No free ride on the pricey ones</span>
+      <span class="mchip">📱 You set every price — per child, from your phone</span>
+    </div>
+  </div>
+</section>
+
+<section style="background:#3730A3;padding:40px 0">
+  <div class="wrap" style="text-align:center">
+    <p style="color:#fff;font-weight:900;font-size:clamp(21px,3.4vw,30px);letter-spacing:-.3px;margin:0 0 16px">This week could be the last screen-time fight.</p>
+    <a class="btn-store" href="https://apps.apple.com/app/id6798913558" aria-label="Download ChoreUnlock on the App Store">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+      <span class="bs-txt"><span class="bs-small">Download on the</span><span class="bs-big">App Store</span></span>
+    </a>
+    <p style="color:#C7D2FE;font-size:13.5px;margin-top:12px">Free for one child · every Premium feature free for 7 days · cancel in seconds</p>
   </div>
 </section>
 
@@ -584,11 +888,14 @@
   <div class="wrap">
     <p class="kicker">Everything inside</p>
     <h2>Motivation kids actually respond to</h2>
-    <p class="lead">More than a chore chart — a little game that makes helping out feel rewarding.</p>
+    <p class="lead">More than a chore chart — a little game that makes helping out feel rewarding. The motivation comes from the system, so it doesn’t have to come from you.</p>
     <div class="feat">
       <div class="card"><div class="ic">🔒</div><h4>Auto-Lock</h4><p>Apps lock until chores are done and unlock automatically when they are.</p><span class="tag">PREMIUM</span></div>
       <div class="card"><div class="ic">⚡</div><h4>Earn screen time with XP</h4><p>Kids spend the XP they earn to buy screen-time minutes, then a countdown runs. Screen time becomes chosen, not endless.</p><span class="tag">PREMIUM</span></div>
-      <div class="card"><div class="ic">🤖</div><h4>AI proof check — photo &amp; voice</h4><p>Snap a photo or record a prayer; AI checks it's really done, hears a recitation word-for-word, and even coaches your child on what to fix.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">🤖</div><h4>AI proof check — photo &amp; voice</h4><p>Snap a photo or record a prayer; AI checks it's really done and coaches your child on what to fix. New: write your own checklist (“water bottles full, no mess”) and the AI checks exactly that.</p><span class="tag">PREMIUM</span></div>
+      <div class="card"><div class="ic">✨</div><h4>Hey Mak — talk, don't type</h4><p>Tap the orb and say it: “bed every morning, photo proof.” Mak answers out loud, plans the missions, and creates them when you say yes.</p><span class="tag">NEW</span></div>
+      <div class="card"><div class="ic">💎</div><h4>Expensive Apps</h4><p>Give social media its own, steeper XP price with no free minutes — everyday apps stay cheap. You set every rate.</p><span class="tag">NEW · PREMIUM</span></div>
+      <div class="card"><div class="ic">💵</div><h4>Real Rewards</h4><p>Chores become real allowance: a weekly receipt-style ledger per child, paid with one tap, your way.</p><span class="tag">NEW · PREMIUM</span></div>
       <div class="card"><div class="ic">🌙</div><h4>Morning &amp; evening routines</h4><p>Time-locked missions — a bedtime chore can re-lock the tablet in the evening until it's done, so nighttime routines actually happen.</p><span class="tag">PREMIUM</span></div>
       <div class="card"><div class="ic">🤝</div><h4>Make a Deal</h4><p>Kids pitch their own chores for XP and negotiate with you — motivation on their terms.</p><span class="tag">PREMIUM</span></div>
       <div class="card"><div class="ic">🎯</div><h4>Wishlist goals</h4><p>Kids save the XP they earn toward a prize they choose — a real goal to work for.</p></div>
@@ -601,49 +908,7 @@
   </div>
 </section>
 
-<section id="pricing">
-  <div class="wrap">
-    <p class="kicker">Pricing</p>
-    <h2>Start free. Unlock everything for less than a coffee.</h2>
-    <p class="lead">Try every Premium feature free for 7 days.</p>
-    <div class="price">
-      <div class="plan">
-        <h3>Free</h3>
-        <div class="amt">$0</div>
-        <ul>
-          <li><span class="c">✓</span> One child, full daily experience</li>
-          <li><span class="c">✓</span> Missions, XP, levels &amp; streaks</li>
-          <li><span class="c">✓</span> Manual lock &amp; unlock</li>
-          <li><span class="c">✓</span> Up to 3 rewards</li>
-        </ul>
-      </div>
-      <div class="plan pro">
-        <span class="pill best">Best value</span>
-        <h3>Premium</h3>
-        <div class="amt">$8.99<span> / month</span></div>
-        <div style="font-size:15px;color:#166534;font-weight:800;margin:2px 0 2px">or $89.99 / year — 2 months free</div>
-        <span class="trial">🎉 7-day free trial</span>
-        <ul>
-          <li><span class="c">✓</span> Your whole family — unlimited children</li>
-          <li><span class="c">✓</span>
-            <span class="li-col">
-              <b>Automatic</b>
-              <span class="submode">Auto-Lock — on / off</span>
-              <span class="submode"><span class="xp-hl">or Metered by XP</span></span>
-            </span>
-          </li>
-          <li><span class="c">✓</span> Earn-screen-time XP meter &amp; countdown timer</li>
-          <li><span class="c">✓</span> AI photo checks</li>
-          <li><span class="c">✓</span> Mystery Chest, challenges &amp; unlimited rewards</li>
-          <li><span class="c">✓</span> Insights, streaks &amp; history</li>
-        </ul>
-      </div>
-    </div>
-    <p style="max-width:660px;margin:22px auto 0;font-size:12.5px;color:#8794ab;line-height:1.6;text-align:center">
-      Subscriptions auto-renew at $8.99/month or $89.99/year unless cancelled at least 24 hours before the period ends. Payment is charged to your Apple ID; manage or cancel anytime in Settings&nbsp;→&nbsp;Subscriptions. A 7-day free trial converts to a paid subscription if not cancelled before it ends. See our <a href="https://choreunlock.com/terms.html" style="color:#8794ab;text-decoration:underline">Terms</a> and <a href="https://choreunlock.com/privacy.html" style="color:#8794ab;text-decoration:underline">Privacy Policy</a>.
-    </p>
-  </div>
-</section>
+
 
 <section id="faq">
   <div class="wrap">
@@ -703,6 +968,18 @@
         <div class="fa">Yes. Proof photos are private to your family and are permanently deleted the moment you approve or reject a chore (and automatically after 7 days if not reviewed). See our <a href="https://choreunlock.com/privacy.html">Privacy Policy</a>.</div>
       </details>
     </div>
+  </div>
+</section>
+
+<section style="background:#3730A3;padding:40px 0">
+  <div class="wrap" style="text-align:center">
+    <p style="color:#fff;font-weight:900;font-size:clamp(21px,3.4vw,30px);letter-spacing:-.3px;margin:0 0 6px">Less nagging. More done. Habits that stick.</p>
+    <p style="color:#C7D2FE;font-size:15px;margin:0 0 16px">Set it up tonight — the first unlock happens tomorrow morning.</p>
+    <a class="btn-store" href="https://apps.apple.com/app/id6798913558" aria-label="Download ChoreUnlock on the App Store">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+      <span class="bs-txt"><span class="bs-small">Download on the</span><span class="bs-big">App Store</span></span>
+    </a>
+    <p style="color:#C7D2FE;font-size:13.5px;margin-top:12px">Free for one child · every Premium feature free for 7 days · cancel in seconds</p>
   </div>
 </section>
 
